@@ -70,6 +70,7 @@ public class Command {
         RECOVER_ENERGY(new String[]{"回复体力", "恢复体力"}, "根据休息时间回复体力"),
         MINING(new String[]{"挖矿", "采矿"}, "挖矿n次"),
         //--------------------------------------------------------------------------------------
+        ALL_QUEST(new String[]{"我的任务","任务"},"任务清单"),
         ACHIEVE_QUEST(new String[]{"完成任务", "提交"}, "完成一个任务"),
         //--------------------------------------------------------------------------------------
         BUY(new String[]{"购买", "买"}, "购买商品"),
@@ -207,6 +208,10 @@ public class Command {
                     break;
                 }
 //--------------------------------------------------------------------------------------
+                case ALL_QUEST: {
+                    rtn = QuestManager.getQuestList();
+                    break;
+                }
                 case ACHIEVE_QUEST: {
                     rtn = QuestManager.achieveQuest(param);
                     break;
