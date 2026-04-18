@@ -1,4 +1,4 @@
-package com.data.equipment;
+package com.data.item.equipment;
 
 import com.central.Signal;
 

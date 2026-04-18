@@ -1,7 +1,7 @@
 package com.command.fight;
 
 import com.central.Signal;
-import com.data.equipment.AllEquipment;
+import com.data.item.equipment.AllEquipment;
 import com.save.SaveData;
 
 public class EquipmentManager {

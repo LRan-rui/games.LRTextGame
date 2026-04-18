@@ -5,8 +5,8 @@
   "Experience_Points": 0,
   "Start_Time": 1776518814122,
   "isGetXP": true,
-  "Energy_Points": 55,
-  "Last_Energy_Time": 1776348155183,
+  "Energy_Points": 1445,
+  "Last_Energy_Time": 1776527558599,
   "Money": 1400,
   "Jewel": 40,
   "equipments": [
@@ -19,16 +19,19 @@
     "愚者": 1
   },
   "Player_Bag": {
-    "碎晶岩": 2,
+    "碎晶岩": 6,
     "星币骑士": 1,
-    "煤": 6,
+    "煤": 14,
     "暗晶煤": 1,
+    "大理石": 4,
     "石英岩": 2,
-    "辉光岩": 1,
-    "石灰岩": 3
+    "锡矿": 3,
+    "辉光岩": 5,
+    "石灰岩": 7,
+    "滑石": 1
   },
   "Property_Pool": {
-    "Mining_Number": 0,
+    "Mining_Number": 21,
     "Mining_Level": 0
   },
   "DayQuest_Last_Time": {}

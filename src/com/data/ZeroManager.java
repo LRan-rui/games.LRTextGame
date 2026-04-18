@@ -3,8 +3,9 @@ package com.data;
 import com.command.quest.DayQuest;
 import com.command.quest.NormalQuest;
 import com.data.character.CharacterManager;
-import com.data.equipment.AllEquipment;
+import com.data.item.equipment.AllEquipment;
 import com.data.item.material.Ore;
+import com.data.item.semiProduct.SemiProductManager;
 
 import java.util.HashMap;
 
@@ -18,6 +19,8 @@ public class ZeroManager {
         things.putAll(CharacterManager.getCharacterMap());
 
         things.putAll(AllEquipment.getEQUIPMENT());
+
+        things.putAll(SemiProductManager.getSemiProducts());
 
         things.putAll(Ore.getMap());
     }

@@ -2,7 +2,7 @@ package com.command.fight;
 
 import com.command.Hone;
 import com.command.Param;
-import com.data.equipment.AllEquipment;
+import com.data.item.equipment.AllEquipment;
 import com.save.SaveData;
 
 public class Stat {

@@ -3,7 +3,7 @@ package com.command;
 import com.data.Thing;
 import com.data.character.Arcana;
 import com.data.character.Character;
-import com.data.equipment.MinorArcana;
+import com.data.item.equipment.MinorArcana;
 import com.save.SaveData;
 
 import java.util.ArrayList;

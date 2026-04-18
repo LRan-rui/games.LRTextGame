@@ -1,4 +1,4 @@
-package com.data.equipment;
+package com.data.item.equipment;
 
 import com.command.Param;
 
@@ -46,7 +46,7 @@ public class MinorArcana {
 
         public String getInformation() {
             return "【%s】\n%s\n%s%s%s%s%s%s%s".formatted(
-                    nameID,
+                    getOutPutName(),
                     information,
                     (equipmentStat[Param.STAT_PHYSICAL] == 0 ? "":"物理属性+"+equipmentStat[Param.STAT_PHYSICAL]),
                     (equipmentStat[Param.STAT_MAGIC] == 0 ? "":"魔法属性+"+equipmentStat[Param.STAT_MAGIC]),
@@ -56,6 +56,11 @@ public class MinorArcana {
                     (equipmentStat[Param.STAT_ATTACK] == 0 ? "":"物攻+"+equipmentStat[Param.STAT_ATTACK]),
                     (equipmentStat[Param.STAT_MAGIC_ATTACK] == 0 ? "":"法攻+"+equipmentStat[Param.STAT_MAGIC_ATTACK])
             );
+        }
+
+        @Override
+        public String getOutPutName() {
+            return "♣️%s".formatted(nameID);
         }
     }
 
@@ -102,7 +107,7 @@ public class MinorArcana {
 
         public String getInformation() {
             return "【%s】\n%s\n%s%s%s%s%s%s%s".formatted(
-                    nameID,
+                    getOutPutName(),
                     information,
                     (equipmentStat[Param.STAT_PHYSICAL] == 0 ? "":"物理属性+"+equipmentStat[Param.STAT_PHYSICAL]),
                     (equipmentStat[Param.STAT_MAGIC] == 0 ? "":"魔法属性+"+equipmentStat[Param.STAT_MAGIC]),
@@ -112,6 +117,11 @@ public class MinorArcana {
                     (equipmentStat[Param.STAT_ATTACK] == 0 ? "":"物攻+"+equipmentStat[Param.STAT_ATTACK]),
                     (equipmentStat[Param.STAT_MAGIC_ATTACK] == 0 ? "":"法攻+"+equipmentStat[Param.STAT_MAGIC_ATTACK])
             );
+        }
+
+        @Override
+        public String getOutPutName() {
+            return "♥️%s".formatted(nameID);
         }
     }
 
@@ -158,7 +168,7 @@ public class MinorArcana {
 
         public String getInformation() {
             return "【%s】\n%s\n%s%s%s%s%s%s%s".formatted(
-                    nameID,
+                    getOutPutName(),
                     information,
                     (equipmentStat[Param.STAT_PHYSICAL] == 0 ? "":"物理属性+"+equipmentStat[Param.STAT_PHYSICAL]),
                     (equipmentStat[Param.STAT_MAGIC] == 0 ? "":"魔法属性+"+equipmentStat[Param.STAT_MAGIC]),
@@ -168,6 +178,11 @@ public class MinorArcana {
                     (equipmentStat[Param.STAT_ATTACK] == 0 ? "":"物攻+"+equipmentStat[Param.STAT_ATTACK]),
                     (equipmentStat[Param.STAT_MAGIC_ATTACK] == 0 ? "":"法攻+"+equipmentStat[Param.STAT_MAGIC_ATTACK])
             );
+        }
+
+        @Override
+        public String getOutPutName() {
+            return "♠️%s".formatted(nameID);
         }
     }
 
@@ -215,7 +230,7 @@ public class MinorArcana {
 
         public String getInformation() {
             return "【%s】\n%s\n%s%s%s%s%s%s%s".formatted(
-                    nameID,
+                    getOutPutName(),
                     information,
                     (equipmentStat[Param.STAT_PHYSICAL] == 0 ? "":"物理属性+"+equipmentStat[Param.STAT_PHYSICAL]),
                     (equipmentStat[Param.STAT_MAGIC] == 0 ? "":"魔法属性+"+equipmentStat[Param.STAT_MAGIC]),
@@ -225,6 +240,11 @@ public class MinorArcana {
                     (equipmentStat[Param.STAT_ATTACK] == 0 ? "":"物攻+"+equipmentStat[Param.STAT_ATTACK]),
                     (equipmentStat[Param.STAT_MAGIC_ATTACK] == 0 ? "":"法攻+"+equipmentStat[Param.STAT_MAGIC_ATTACK])
             );
+        }
+
+        @Override
+        public String getOutPutName() {
+            return "♦️%s".formatted(nameID);
         }
     }
 }

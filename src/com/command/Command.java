@@ -4,6 +4,7 @@ package com.command;
 import com.central.Signal;
 import com.command.action.EnergyManager;
 import com.command.action.Mining;
+import com.command.craft.Craft;
 import com.command.fight.EquipmentManager;
 import com.command.fight.Stat;
 import com.command.quest.QuestManager;
@@ -67,6 +68,9 @@ public class Command {
         //--------------------------------------------------------------------------------------
         SET_EQUIPMENT(new String[]{"装备"}, "装备装备"),
         REMOVE_EQUIPMENT(new String[]{"卸下"}, "卸下装备"),
+        //--------------------------------------------------------------------------------------
+        CRAFT(new String[]{"合成"},"合成物品"),
+        TO_CRAFT(new String[]{"预合成"},"查看合成物品所需材料"),
         //--------------------------------------------------------------------------------------
         RECOVER_ENERGY(new String[]{"回复体力", "恢复体力"}, "根据休息时间回复体力"),
         MINING(new String[]{"挖矿", "采矿"}, "挖矿n次"),
@@ -196,6 +200,15 @@ public class Command {
                 }
                 case REMOVE_EQUIPMENT: {
                     rtn = EquipmentManager.removeEquipment(param);
+                    break;
+                }
+//--------------------------------------------------------------------------------------
+                case CRAFT: {
+                    rtn = Craft.craft(param);
+                    break;
+                }
+                case TO_CRAFT: {
+                    rtn = Craft.toCraft(param);
                     break;
                 }
 //--------------------------------------------------------------------------------------
