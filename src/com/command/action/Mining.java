@@ -27,7 +27,7 @@ public class Mining extends Action {
         }
         saveData.setEnergy_Points(y);
 
-        StringBuilder rtn = new StringBuilder(String.format("挖矿完成，消耗体力%d点,获得:\n", x * ENERGY_USED));
+        StringBuilder rtn = new StringBuilder();
         Random rand = new Random();
 
         HashMap<Material, Integer> map = new HashMap<>();
@@ -48,9 +48,12 @@ public class Mining extends Action {
             saveData.getProperty_Pool().merge(Param.MINING_NUM, 1, Integer::sum);
             reNewLevel();
         }
+
+        rtn.append(String.format("挖矿完成，挖矿等级:Lv.%d  (%d/%d)\n消耗体力%d点,获得:\n", level, num, (level + 1) * 100, x * ENERGY_USED));
+
         boolean isEnter = false;
         for (Material material : map.keySet()) {
-            rtn.append(material.getNameID()).append("×").append(map.get(material));
+            rtn.append(material.getOutPutName()).append("×").append(map.get(material));
             if (isEnter) {
                 rtn.append("\n");
                 isEnter = false;
@@ -71,9 +74,9 @@ public class Mining extends Action {
         level = saveData.getProperty_Pool().get(Param.MINING_LEVEL);
         num = saveData.getProperty_Pool().get(Param.MINING_NUM);
 
-        if (num >= level * 100) {
+        if (num >= (level + 1) * 100) {
             level++;
-            num -= level * 100;
+            num -= (level + 1) * 100;
         }
 
         saveData.getProperty_Pool().put(Param.MINING_LEVEL, level);

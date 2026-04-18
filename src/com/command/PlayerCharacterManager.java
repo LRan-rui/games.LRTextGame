@@ -6,7 +6,7 @@ import com.save.SaveData;
 
 import java.util.HashMap;
 
-public class CharacterManager {
+public class PlayerCharacterManager {
 
     private static final HashMap<String, Arcana> CHARACTERS = new HashMap<>();
 

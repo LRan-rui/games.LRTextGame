@@ -1,7 +1,5 @@
 package com.data;
 
-public interface Thing {
-    String getNameID();
+public interface Thing extends Zero {
 
-    String getInformation();
 }

@@ -43,7 +43,12 @@ public class DayQuest {
 
         @Override
         public String getInformation() {
-            return this.information;
+            return "%s\n%s\n任务要求:\n%s任务奖励:\n%s".formatted(this.nameID, this.information, this.needThings.formatString(), this.rewards.formatString());
+        }
+
+        @Override
+        public String getQuestStat(){
+            return "每日任务";
         }
 
         @Override

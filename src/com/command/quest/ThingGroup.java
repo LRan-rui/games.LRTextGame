@@ -57,4 +57,12 @@ public class ThingGroup {
         }
         return Signal.THING_NOT_ENOUGH.getSignal();
     }
+
+    public String formatString(){
+        StringBuilder rtn = new StringBuilder();
+        for (Thing thing : this.needThings.keySet()) {
+            rtn.append("【").append(thing.getNameID()).append("】×").append(needThings.get(thing)).append("\n");
+        }
+        return rtn.toString();
+    }
 }

@@ -1,9 +1,8 @@
 package com.command.quest;
 
-public interface Quest {
-    String getNameID();
+import com.data.Zero;
 
-    String getInformation();
-
+public interface Quest extends Zero {
+    String getQuestStat();
     String achieve();
 }

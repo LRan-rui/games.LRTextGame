@@ -16,4 +16,6 @@ public class Param {
     public static final String MINING_LEVEL = "Mining_Level";
 
     public static final String MINING_NUM = "Mining_Number";
+
+    public static final String[] ROMAN_NUMERALS = {"0","I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV","XV","XVI","XVII","XVIII","XIX","XX","XXI"};
 }

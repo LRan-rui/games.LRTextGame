@@ -24,7 +24,7 @@ public class QuestManager {
     public static String getQuestList(){
         StringBuilder rtn = new StringBuilder();
         for (String questName : Quest_List.keySet()) {
-            rtn.append(questName).append("\n");
+            rtn.append("[").append(Quest_List.get(questName).getQuestStat()).append("]").append(questName).append("\n");
         }
         return rtn.toString();
     }

@@ -24,6 +24,9 @@ public class AllEquipment {
         }
     }
 
+    public static HashMap<String, Equipment> getEQUIPMENT() {
+        return EQUIPMENT;
+    }
 
     public static String isEquipment(String equipment) {
         Equipment equip = EQUIPMENT.get(equipment);

@@ -1,5 +1,8 @@
 package com.command;
 
+import com.central.Signal;
+import com.data.ZeroManager;
+import com.data.Zero;
 import com.save.SaveData;
 
 import java.util.Map;
@@ -81,5 +84,10 @@ public class Information {
         SaveData saveData = SaveData.getSaveData();
         saveData.setPlayer_ID(newPlayerID);
         return String.format("已修改名字为:%s", saveData.getPlayer_ID());
+    }
+
+    public static String getThingInformation(String nameID) {
+        Zero zero = ZeroManager.getZeros().get(nameID);
+        return zero != null ? zero.getInformation() : Signal.THING_NOT_FOUND_ERROR.getSignal();
     }
 }

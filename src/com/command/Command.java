@@ -59,6 +59,7 @@ public class Command {
         SET_CHARACTERS(new String[]{"修改角色"}, "修改角色为新角色"),
         SET_PLAYER_ID(new String[]{"改名", "修改名字"}, "修改角色的名字"),
         HELP(new String[]{"帮助", "[帮助]"}, "命令列表,或返回命令的别名，如“帮助帮助”"),
+        HELP_THING(new String[]{"介绍"},"介绍某物品或任务"),
         //--------------------------------------------------------------------------------------
         HONE(new String[]{"修炼", "修行", "观悟"}, "开始修炼或结束修炼"),
         EXIT_HONE(new String[]{"结束修炼"}, "强制结束修炼，可能没有收益"),
@@ -124,7 +125,7 @@ public class Command {
         private static String getCommandDescription() {
             StringBuilder rtn = new StringBuilder("【命令列表】\n");
             for (CommandCode c : CommandCode.values()) {
-                rtn.append(c.commandName[0]).append(": ").append(c.description).append("\n");
+                rtn.append("%s%s: %s\n".formatted(c.commandName[0],"\u3000".repeat(4-c.commandName[0].length()),c.description));
             }
 
             return rtn.toString();
@@ -160,7 +161,7 @@ public class Command {
                     break;
                 }
                 case SET_CHARACTERS: {
-                    rtn = CharacterManager.setCharacter(param);
+                    rtn = PlayerCharacterManager.setCharacter(param);
                     break;
                 }
                 case SET_PLAYER_ID: {
@@ -169,6 +170,10 @@ public class Command {
                 }
                 case HELP: {
                     rtn = getHelp(param);
+                    break;
+                }
+                case  HELP_THING: {
+                    rtn = Information.getThingInformation(param);
                     break;
                 }
 //--------------------------------------------------------------------------------------

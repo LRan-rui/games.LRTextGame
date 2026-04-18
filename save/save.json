@@ -3,14 +3,14 @@
   "Player_ID": "玩家",
   "Player_Level": 0,
   "Experience_Points": 0,
-  "Start_Time": 1776348155183,
-  "isGetXP": false,
+  "Start_Time": 1776518814122,
+  "isGetXP": true,
   "Energy_Points": 55,
   "Last_Energy_Time": 1776348155183,
-  "Money": 1200,
-  "Jewel": 30,
+  "Money": 1400,
+  "Jewel": 40,
   "equipments": [
-    null,
+    "星币骑士",
     null,
     null,
     null
@@ -19,16 +19,17 @@
     "愚者": 1
   },
   "Player_Bag": {
-    "🪨碎晶岩": 2,
-    "🪨辉光岩": 1,
-    "🪨石英岩": 2,
-    "🪨石灰岩": 3,
-    "🪨暗晶煤": 1,
-    "🪨煤": 6
+    "碎晶岩": 2,
+    "星币骑士": 1,
+    "煤": 6,
+    "暗晶煤": 1,
+    "石英岩": 2,
+    "辉光岩": 1,
+    "石灰岩": 3
   },
   "Property_Pool": {
-    "Mining_Number": -91,
-    "Mining_Level": 1
+    "Mining_Number": 0,
+    "Mining_Level": 0
   },
   "DayQuest_Last_Time": {}
 }
