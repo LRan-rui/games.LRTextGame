@@ -11,6 +11,7 @@ public enum Signal {
     EQUIPMENT_TOO_MUCH("装备栏已满"),
     DAY_QUEST_ACHIEVED("该任务今日已经完成过了"),
     QUEST_NOT_FOUND("未找到此任务"),
+    THING_CANNOT_USE("该物品不能使用"),
     RIGHT("正常"),
     NULL("null");
 

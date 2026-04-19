@@ -28,4 +28,8 @@ public class QuestManager {
         }
         return rtn.toString();
     }
+
+    public static HashMap<String,Quest> getQuest_List(){
+        return Quest_List;
+    }
 }

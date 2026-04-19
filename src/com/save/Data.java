@@ -58,6 +58,9 @@ public class Data {
 
         this.Property_Pool.put(Param.MINING_LEVEL, 0);
         this.Property_Pool.put(Param.MINING_NUM, 0);
+        this.Property_Pool.put(Param.LOGGING_LEVEL,0);
+        this.Property_Pool.put(Param.LOGGING_NUM, 0);
+
     }
 
     public Arcana getPlayerCharacter() {

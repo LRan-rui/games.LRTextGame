@@ -2,16 +2,16 @@ package com.command.action;
 
 import com.command.Param;
 import com.data.item.material.Material;
-import com.data.item.material.Ore;
+import com.data.item.material.Plant;
 import com.save.SaveData;
 
 import java.util.HashMap;
 import java.util.Random;
 
-public class Mining extends Action {
+public class Logging extends Action{
     private static final int ENERGY_USED = 5;
 
-    public static String mining(String param) {
+    public static String logging(String param) {
         reNewLevel();
         int x;
         try {
@@ -34,22 +34,22 @@ public class Mining extends Action {
         for (int i = 0; i < x; i++) {
             Material[] materials = materials();
             int rtnMaxNum = 0;
-            if (materials[0] == Ore.S.values()[0]) rtnMaxNum = 1 + level / 5;
-            if (materials[0] == Ore.A.values()[0]) rtnMaxNum = 1 + level / 4;
-            if (materials[0] == Ore.B.values()[0]) rtnMaxNum = 1 + level / 3;
-            if (materials[0] == Ore.C.values()[0]) rtnMaxNum = 2 + level / 2;
-            if (materials[0] == Ore.D.values()[0]) rtnMaxNum = 3 + level;
+            if (materials[0] == Plant.S.values()[0]) rtnMaxNum = 1 + level / 5;
+            if (materials[0] == Plant.A.values()[0]) rtnMaxNum = 1 + level / 4;
+            if (materials[0] == Plant.B.values()[0]) rtnMaxNum = 1 + level / 3;
+            if (materials[0] == Plant.C.values()[0]) rtnMaxNum = 2 + level / 2;
+            if (materials[0] == Plant.D.values()[0]) rtnMaxNum = 3 + level;
 
             Material material = materials[(int) (Math.random() * materials.length)];
             rand.setSeed(System.currentTimeMillis());
             int rtnNum = rand.nextInt(rtnMaxNum) + 1;
             saveData.addPlayer_Bag(material, rtnNum);
             map.merge(material, rtnNum, Integer::sum);
-            saveData.getProperty_Pool().merge(Param.MINING_NUM, 1, Integer::sum);
+            saveData.getProperty_Pool().merge(Param.LOGGING_NUM, 1, Integer::sum);
             reNewLevel();
         }
 
-        rtn.append(String.format("挖矿完成，挖矿等级:Lv.%d  (%d/%d)\n消耗体力%d点,获得:\n", level, num, (level + 1) * 100, x * ENERGY_USED));
+        rtn.append(String.format("采伐完成，采伐等级:Lv.%d  (%d/%d)\n消耗体力%d点,获得:\n", level, num, (level + 1) * 100, x * ENERGY_USED));
 
         boolean isEnter = false;
         for (Material material : map.keySet()) {
@@ -63,33 +63,31 @@ public class Mining extends Action {
             }
         }
 
-
         return rtn.toString();
     }
-
 
     private static void reNewLevel() {
         SaveData saveData = SaveData.getSaveData();
 
-        level = saveData.getProperty_Pool().get(Param.MINING_LEVEL);
-        num = saveData.getProperty_Pool().get(Param.MINING_NUM);
+        level = saveData.getProperty_Pool().get(Param.LOGGING_LEVEL);
+        num = saveData.getProperty_Pool().get(Param.LOGGING_NUM);
 
         if (num >= (level + 1) * 100) {
             level++;
             num -= level * 100;
         }
 
-        saveData.getProperty_Pool().put(Param.MINING_LEVEL, level);
-        saveData.getProperty_Pool().put(Param.MINING_NUM, num);
+        saveData.getProperty_Pool().put(Param.LOGGING_LEVEL, level);
+        saveData.getProperty_Pool().put(Param.LOGGING_NUM, num);
     }
 
     private static Material[] materials() {
         reNewLevel();
-        Ore.S[] oreS = Ore.S.values();
-        Ore.A[] oreA = Ore.A.values();
-        Ore.B[] oreB = Ore.B.values();
-        Ore.C[] oreC = Ore.C.values();
-        Ore.D[] oreD = Ore.D.values();
+        Plant.S[] S = Plant.S.values();
+        Plant.A[] A = Plant.A.values();
+        Plant.B[] B = Plant.B.values();
+        Plant.C[] C = Plant.C.values();
+        Plant.D[] D = Plant.D.values();
 
         Material[] materials;
 
@@ -100,15 +98,15 @@ public class Mining extends Action {
 
         int y;
         if (x < (y = s_weight + (add_weight * level))) {
-            materials = oreS;
+            materials = S;
         } else if (x < (y = y + a_weight + (add_weight * level))) {
-            materials = oreA;
+            materials = A;
         } else if (x < (y = y + b_weight + (add_weight * level))) {
-            materials = oreB;
+            materials = B;
         } else if (x < (y + c_weight + (add_weight * level))) {
-            materials = oreC;
+            materials = C;
         } else {
-            materials = oreD;
+            materials = D;
         }
 
         return materials;

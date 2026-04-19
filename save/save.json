@@ -1,38 +1,56 @@
 {
-  "PlayerCharacter": "THE_FOOL",
+  "PlayerCharacter": "THE_EMPRESS",
   "Player_ID": "玩家",
-  "Player_Level": 0,
-  "Experience_Points": 0,
-  "Start_Time": 1776518814122,
-  "isGetXP": true,
-  "Energy_Points": 1445,
-  "Last_Energy_Time": 1776527558599,
-  "Money": 1400,
-  "Jewel": 40,
+  "Player_Level": 6,
+  "Experience_Points": 33,
+  "Start_Time": 1776570778341,
+  "isGetXP": false,
+  "Energy_Points": 650,
+  "Last_Energy_Time": 1776570873272,
+  "Money": 2270,
+  "Jewel": 0,
   "equipments": [
     "星币骑士",
-    null,
-    null,
-    null
+    "权杖I",
+    "宝剑X",
+    "圣杯侍从"
   ],
   "Character_Bag": {
-    "愚者": 1
+    "恋人": 1,
+    "愚者": 1,
+    "皇后": 2
   },
   "Player_Bag": {
-    "碎晶岩": 6,
+    "秘钢": 5,
+    "暗晶煤": 17,
+    "黑曜石": 3,
+    "无烟煤": 17,
+    "大理石": 34,
+    "滑石": 5,
+    "碎晶岩": 469,
+    "权杖VI": 1,
+    "磁晶矿": 7,
+    "石英岩": 18,
+    "银矿": 3,
     "星币骑士": 1,
-    "煤": 14,
-    "暗晶煤": 1,
-    "大理石": 4,
-    "石英岩": 2,
-    "锡矿": 3,
-    "辉光岩": 5,
-    "石灰岩": 7,
-    "滑石": 1
+    "煤": 524,
+    "银锭": 1,
+    "宝剑X": 1,
+    "权杖I": 1,
+    "圣杯侍从": 1,
+    "锡矿": 72,
+    "辉光岩": 75,
+    "砾石矿": 6,
+    "星币VII": 1,
+    "石灰岩": 506,
+    "星币IX": 1,
+    "宝剑III": 1
   },
   "Property_Pool": {
-    "Mining_Number": 21,
-    "Mining_Level": 0
+    "Mining_Number": 128,
+    "Mining_Level": 2,
+    "Logging_Number": 128,
+    "Logging_Level": 2
   },
   "DayQuest_Last_Time": {}
 }

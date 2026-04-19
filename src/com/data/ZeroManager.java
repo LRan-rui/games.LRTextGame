@@ -1,11 +1,10 @@
 package com.data;
 
-import com.command.quest.DayQuest;
-import com.command.quest.NormalQuest;
+import com.command.quest.QuestManager;
 import com.data.character.CharacterManager;
-import com.data.item.equipment.AllEquipment;
-import com.data.item.material.Ore;
-import com.data.item.semiProduct.SemiProductManager;
+import com.data.item.ItemManager;
+import com.data.item.material.MaterialManager;
+
 
 import java.util.HashMap;
 
@@ -13,16 +12,13 @@ public class ZeroManager {
     private static final HashMap<String,Zero>  things = new HashMap<>();
 
     static {
-        things.putAll(NormalQuest.getNormalQuest_List());
-        things.putAll(DayQuest.getDayQuest_List());
+        things.putAll(QuestManager.getQuest_List());
 
         things.putAll(CharacterManager.getCharacterMap());
 
-        things.putAll(AllEquipment.getEQUIPMENT());
+        things.putAll(ItemManager.getItems());
 
-        things.putAll(SemiProductManager.getSemiProducts());
-
-        things.putAll(Ore.getMap());
+        things.putAll(MaterialManager.getMaterial());
     }
 
     public static HashMap<String,Zero> getZeros() {

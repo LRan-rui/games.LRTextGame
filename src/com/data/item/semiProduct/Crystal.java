@@ -5,21 +5,20 @@ import com.command.craft.Craft;
 import com.data.item.UseGroup;
 import com.save.SaveData;
 
-public enum Metal implements SemiProduct {
-    TIN_INGOT("锡锭","由锡矿冶炼而来的金属锭"),
-    SILVER_INGOT("银锭","由银矿冶炼而来的贵金属，具有不低的价值",new UseGroup(1000,20,0,0));
+public enum Crystal implements SemiProduct{
+    CRYSTAL_SHARD("碎晶","碎晶岩筛选好的晶体碎片，含有微弱的能量",new UseGroup(0,0,20,0));
 
     private final String nameID;
     private final String information;
     private final UseGroup useGroup;
 
-    Metal(String nameID, String information) {
+    Crystal(String nameID, String information) {
         this.nameID = nameID;
         this.information = information;
         this.useGroup = null;
     }
 
-    Metal(String nameID, String information, UseGroup useGroup) {
+    Crystal(String nameID, String information, UseGroup useGroup) {
         this.nameID = nameID;
         this.information = information;
         this.useGroup = useGroup;
@@ -35,8 +34,9 @@ public enum Metal implements SemiProduct {
         if(useGroup == null){
             return Signal.THING_CANNOT_USE.getSignal();
         }if(SaveData.getSaveData().getPlayer_Bag().get(this.nameID) == null){
-            SaveData.getSaveData().getPlayer_Bag().remove(this.nameID);
+            return Signal.THING_NOT_FOUND_ERROR.getSignal();
         }
+        SaveData.getSaveData().removePlayer_Bag(this,1);
         return useGroup.toUse();
     }
 

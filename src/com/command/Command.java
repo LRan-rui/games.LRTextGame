@@ -3,12 +3,14 @@ package com.command;
 
 import com.central.Signal;
 import com.command.action.EnergyManager;
+import com.command.action.Logging;
 import com.command.action.Mining;
 import com.command.craft.Craft;
 import com.command.fight.EquipmentManager;
 import com.command.fight.Stat;
 import com.command.quest.QuestManager;
 import com.command.shop.ShopManager;
+import com.data.item.UseItem;
 
 import java.util.HashMap;
 
@@ -71,9 +73,11 @@ public class Command {
         //--------------------------------------------------------------------------------------
         CRAFT(new String[]{"合成"},"合成物品"),
         TO_CRAFT(new String[]{"预合成"},"查看合成物品所需材料"),
+        TO_USE(new String[]{"使用"},"使用物品"),
         //--------------------------------------------------------------------------------------
         RECOVER_ENERGY(new String[]{"回复体力", "恢复体力"}, "根据休息时间回复体力"),
         MINING(new String[]{"挖矿", "采矿"}, "挖矿n次"),
+        LOGGING(new String[]{"采伐","砍伐","砍树"},"采伐n次"),
         //--------------------------------------------------------------------------------------
         ALL_QUEST(new String[]{"我的任务","任务"},"任务清单"),
         ACHIEVE_QUEST(new String[]{"完成任务", "提交"}, "完成一个任务"),
@@ -211,6 +215,10 @@ public class Command {
                     rtn = Craft.toCraft(param);
                     break;
                 }
+                case TO_USE: {
+                    rtn = UseItem.useItem(param);
+                    break;
+                }
 //--------------------------------------------------------------------------------------
                 case RECOVER_ENERGY: {
                     rtn = EnergyManager.recoverEnergy();
@@ -218,6 +226,10 @@ public class Command {
                 }
                 case MINING: {
                     rtn = Mining.mining(param);
+                    break;
+                }
+                case  LOGGING: {
+                    rtn = Logging.logging(param);
                     break;
                 }
 //--------------------------------------------------------------------------------------

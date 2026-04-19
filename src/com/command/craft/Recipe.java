@@ -78,4 +78,8 @@ public class Recipe {
     public Zero getCraftingOutPut() {
         return this.craftingOutPut;
     }
+
+    public HashMap<Thing, Integer> getNeedThings() {
+        return this.needThings;
+    }
 }

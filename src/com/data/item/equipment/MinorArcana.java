@@ -1,10 +1,11 @@
 package com.data.item.equipment;
 
+import com.central.Signal;
 import com.command.Param;
 
 public class MinorArcana {
     public enum Wands implements Equipment {
-        ACE_OF_WANDS("权杖I", 1, "新行动或事业的开始，充满创造潜力与能量。", new int[]{0, 5, 0, 0, 0, 0}),
+        ACE_OF_WANDS("权杖I", 1, "新行动或事业的开始，充满创造潜力与能量。", new int[]{0, 5, 0, 0, 0, 0, 0}),
         TWO_OF_WANDS("权杖II", 2, "在已有基础上规划下一步，权衡冒险与保守。", new int[]{0, 5, 0, 0, 0, 0, 0}),
         THREE_OF_WANDS("权杖III", 3, "远见带来初步成功，等待合作或贸易的回报。", new int[]{0, 5, 0, 0, 0, 0, 0}),
         FOUR_OF_WANDS("权杖IV", 4, "稳固的庆祝，团队或家庭的和谐与安全感。", new int[]{0, 5, 0, 0, 0, 0, 0}),
@@ -61,6 +62,11 @@ public class MinorArcana {
         @Override
         public String getOutPutName() {
             return "♣️%s".formatted(nameID);
+        }
+
+        @Override
+        public String toUse() {
+            return Signal.THING_CANNOT_USE.getSignal();
         }
     }
 
@@ -123,10 +129,15 @@ public class MinorArcana {
         public String getOutPutName() {
             return "♥️%s".formatted(nameID);
         }
+
+        @Override
+        public String toUse() {
+            return Signal.THING_CANNOT_USE.getSignal();
+        }
     }
 
     public enum Swords implements Equipment {
-        ACE_OF_SWORDS("宝剑I", 1, "清晰的理智，新观念或决断的胜利。", new int[]{5, 0, 0, 0, 0, 0, 5}),
+        ACE_OF_SWORDS("宝剑I", 1, "清晰的理智，新观念或决断的胜利。", new int[]{5, 0, 0, 0, 0, 0, 0}),
         TWO_OF_SWORDS("宝剑II", 2, "自我防卫，拒绝面对真相，内心矛盾。", new int[]{5, 0, 0, 0, 0, 0, 0}),
         THREE_OF_SWORDS("宝剑III", 3, "心碎与痛苦，悲伤与分离的打击。", new int[]{5, 0, 0, 0, 0, 0, 0}),
         FOUR_OF_SWORDS("宝剑IV", 4, "暂时的休息，冥想或疗愈中的安静。", new int[]{5, 0, 0, 0, 0, 0, 0}),
@@ -183,6 +194,11 @@ public class MinorArcana {
         @Override
         public String getOutPutName() {
             return "♠️%s".formatted(nameID);
+        }
+
+        @Override
+        public String toUse() {
+            return Signal.THING_CANNOT_USE.getSignal();
         }
     }
 
@@ -245,6 +261,11 @@ public class MinorArcana {
         @Override
         public String getOutPutName() {
             return "♦️%s".formatted(nameID);
+        }
+
+        @Override
+        public String toUse() {
+            return Signal.THING_CANNOT_USE.getSignal();
         }
     }
 }

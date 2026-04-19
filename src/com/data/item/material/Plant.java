@@ -5,23 +5,23 @@ import com.command.craft.Craft;
 
 import java.util.HashMap;
 
-public class Ore {
+public class Plant {
     private static final HashMap<String, Material> map = new HashMap<>();
 
     static {
-        for(Material material: S.values()){
+        for(Material material: Plant.S.values()){
             getMap().put(material.getNameID(), material);
         }
-        for(Material material: A.values()){
+        for(Material material: Plant.A.values()){
             getMap().put(material.getNameID(), material);
         }
-        for(Material material: B.values()){
+        for(Material material: Plant.B.values()){
             getMap().put(material.getNameID(), material);
         }
-        for(Material material: C.values()){
+        for(Material material: Plant.C.values()){
             getMap().put(material.getNameID(), material);
         }
-        for(Material material: D.values()){
+        for(Material material: Plant.D.values()){
             getMap().put(material.getNameID(), material);
         }
     }
@@ -31,10 +31,11 @@ public class Ore {
     }
 
 
+
     public enum S implements Material {
-        MYSTIC_STEEL("秘钢", "铁与魔法精华融合而成的深青色合金，兼具硬度与魔力传导性。"),
-        OBSIDIAN("黑曜石", "火山玻璃质岩石，断口锋利无比，适合制作高级切割工具或魔法阵的基底。"),
-        CLINT_ORE("砾石矿", "内部封存着闪烁光能的矿石，受到敲击时会爆发出耀眼的闪光。"),
+        BLOODWOOD("血檀", "心材呈深红色的稀有硬木，仅产于偏远雨林老树。"),
+        DRAGON_TREE_RESIN("龙血树脂", "龙血树分泌的深红色树脂，凝固后如红宝石。"),
+        GOLDEN_NANMU("金丝楠", "木纹含天然金色丝光的珍稀木材，古代仅限皇家使用。"),
         ;
 
         private final String nameID;
@@ -51,7 +52,7 @@ public class Ore {
         }
 
         public String getOutPutName() {
-            return getLevel()+"级∙✨\uD83E\uDEA8"+this.nameID;
+            return getLevel()+"级∙✨\uD83E\uDEB5"+this.nameID;
         }
 
         @Override
@@ -80,11 +81,10 @@ public class Ore {
         }
     }
 
-
     public enum A implements Material {
-        SILVER_ORE("银矿", "闪耀银白色光泽的贵金属矿石，熔炼后得到银，对灵体与魔物有克制效果。"),
-        TALC("滑石", "质地极软的矿物，手触有油腻感，磨成粉末可用作耐高温润滑剂或陶瓷原料。"),
-        MAGNET_CRYSTAL_ORE("磁晶矿", "蕴含天然磁力的结晶矿体，由蕴含丰富能量的晶体构成。"),
+        BURLYWOOD("阴沉木", "埋藏于河床或沼泽地下的千年古木，半石半木。"),
+        IRONWOOD("铁梨木", "密度极高、沉水的热带硬木，需专用工具加工。"),
+        FIR_KNOT("冷杉结", "冷杉树干上形成的硬质瘤结，纹理致密。"),
         ;
 
         private final String nameID;
@@ -101,7 +101,7 @@ public class Ore {
         }
 
         public String getOutPutName() {
-            return getLevel()+"级∙✨\uD83E\uDEA8"+this.nameID;
+            return getLevel()+"级∙✨\uD83E\uDEB5"+this.nameID;
         }
 
         public String getLevel() {
@@ -131,9 +131,9 @@ public class Ore {
     }
 
     public enum B implements Material {
-        ANTHRACITE("无烟煤", "高品位的煤，火焰洁净且热量极高，是精炼金属的理想燃料。"),
-        QUARTZITE("石英岩", "由石英颗粒紧密胶结而成的坚硬岩石，纯度极高，是制造玻璃或水晶器皿的原料。"),
-        DARK_CRYSTAL_COAL("暗晶煤", "煤与暗能量结晶的混合矿，燃烧时释放阴冷的幽蓝色火焰。"),
+        EBONY("乌木", "高品位的煤，火焰洁净且热量极高，是精炼金属的理想燃料。"),
+        MAPLE_RESIN("枫脂", "糖枫树受损伤后流出的琥珀色胶液，是不错的粘合剂。"),
+        DARK_VINE("魔藤", "生长于阴湿洞穴的灰紫色藤蔓，表面有微弱荧光。"),
         ;
 
         private final String nameID;
@@ -149,7 +149,7 @@ public class Ore {
             return this.nameID;
         }
         public String getOutPutName() {
-            return getLevel()+"级∙\uD83E\uDEA8"+nameID;
+            return getLevel()+"级∙\uD83E\uDEB5"+nameID;
         }
 
         public String getLevel() {
@@ -179,9 +179,9 @@ public class Ore {
     }
 
     public enum C implements Material {
-        TIN_ORE("锡矿", "银白色金属矿石，熔炼后得到柔软的锡，适合制造初级容器与合金。"),
-        MARBLE("大理石", "纹理美观的变质岩，经打磨后光亮如镜，是雕刻与高级建筑的常用石材。"),
-        GLOWSTONE("辉光岩", "自然发出冷光的坚硬岩石，常用于制作永久的照明设施或魔法灯。"),
+        HARDWOOD("硬木", "密度较大的木材，比普通木头硬的多。"),
+        BRIAR("荆条", "带刺的灌木枝条，十分扎手。"),
+        BIRCH("桦木", "浅色细腻的木材，易于雕刻。"),
         ;
 
         private final String nameID;
@@ -198,7 +198,7 @@ public class Ore {
         }
 
         public String getOutPutName() {
-            return getLevel()+"级∙\uD83E\uDEA8"+this.nameID;
+            return getLevel()+"级∙\uD83E\uDEB5"+this.nameID;
         }
 
         public String getLevel() {
@@ -228,9 +228,9 @@ public class Ore {
     }
 
     public enum D implements Material {
-        COAL("煤", "地表常见的黑色可燃岩石，是初期最基础的燃料来源。"),
-        LIMESTONE("石灰岩", "灰白色沉积岩，可用于建筑，是基础的矿物材料。"),
-        SHARD_STONE("碎晶岩", "夹杂着脆弱发光晶体的沉积岩，敲碎后可获得微弱的能量碎片。"),
+        WOOD("木材", "最常见的植物材料，可制作基础工具手柄或建筑框架。"),
+        VINE("藤蔓", "柔软的攀爬植物，可编绳或捆扎。"),
+        BARK("树皮", "粗糙的树干外层，可制作低级护甲。"),
         ;
 
         private final String nameID;
@@ -247,7 +247,7 @@ public class Ore {
         }
 
         public String getOutPutName() {
-            return getLevel()+"级∙\uD83E\uDEA8"+this.nameID;
+            return getLevel()+"级∙\uD83E\uDEB5"+this.nameID;
         }
 
         public String getLevel() {
