@@ -36,7 +36,7 @@ public class Roll {
             return String.format("宝石不够,还差%d个宝石", -x);
         } else {
             SaveData.getSaveData().setJewel(x);
-            String str = rollOneToAllArcana().getNameID();
+            String str = rollOneToAllArcana().getOutPutName();
             return String.format("你抽到了\n---------------------------\n    【%s】\n---------------------------", str);
         }
     }
@@ -51,10 +51,10 @@ public class Roll {
             Random rand = new Random();
             Thing thing = character_pool.get(rand.nextInt(character_pool.size()));
             SaveData.getSaveData().addCharacter((Character) thing);
-            str[0] = thing.getNameID();
+            str[0] = thing.getOutPutName();
             for (int i = 1; i < 10; i++) {
                 thing = rollOneToAllArcana();
-                str[i] = thing.getNameID();
+                str[i] = thing.getOutPutName();
             }
             return String.format("你抽到了\n---------------------------\n  【%s】    【%s】\n  【%s】    【%s】\n  【%s】    【%s】\n  【%s】    【%s】\n  【%s】    【%s】\n---------------------------", str[0], str[1], str[2], str[3], str[4], str[5], str[6], str[7], str[8], str[9]);
         }

@@ -1,10 +1,6 @@
 package com.data;
 
 import com.command.quest.QuestManager;
-import com.data.character.CharacterManager;
-import com.data.item.ItemManager;
-import com.data.item.material.MaterialManager;
-
 
 import java.util.HashMap;
 
@@ -14,11 +10,7 @@ public class ZeroManager {
     static {
         things.putAll(QuestManager.getQuest_List());
 
-        things.putAll(CharacterManager.getCharacterMap());
-
-        things.putAll(ItemManager.getItems());
-
-        things.putAll(MaterialManager.getMaterial());
+        things.putAll(ThingManager.getThings());
     }
 
     public static HashMap<String,Zero> getZeros() {

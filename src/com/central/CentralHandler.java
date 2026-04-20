@@ -15,6 +15,7 @@ public class CentralHandler {
 
     private static final CentralHandler handler = new CentralHandler();
     private String rtn;
+    //自动存档标识，每10次操作会自动存档一次
     private int x = 0;
 
     private CentralHandler() {

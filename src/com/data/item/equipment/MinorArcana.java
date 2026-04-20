@@ -49,12 +49,12 @@ public class MinorArcana {
             return "【%s】\n%s\n%s%s%s%s%s%s%s".formatted(
                     getOutPutName(),
                     information,
-                    (equipmentStat[Param.STAT_PHYSICAL] == 0 ? "":"物理属性+"+equipmentStat[Param.STAT_PHYSICAL]),
-                    (equipmentStat[Param.STAT_MAGIC] == 0 ? "":"魔法属性+"+equipmentStat[Param.STAT_MAGIC]),
-                    (equipmentStat[Param.STAT_PHYSICAL_RESISTANCE] == 0 ? "":"物抗+"+equipmentStat[Param.STAT_PHYSICAL_RESISTANCE]),
-                    (equipmentStat[Param.STAT_MAGIC_RESISTANCE] == 0 ? "":"法抗+"+equipmentStat[Param.STAT_MAGIC_RESISTANCE]),
-                    (equipmentStat[Param.STAT_HEALTH] == 0 ? "":"生命值+"+equipmentStat[Param.STAT_HEALTH]),
-                    (equipmentStat[Param.STAT_ATTACK] == 0 ? "":"物攻+"+equipmentStat[Param.STAT_ATTACK]),
+                    (equipmentStat[Param.STAT_PHYSICAL] == 0 ? "":"物理属性+"+equipmentStat[Param.STAT_PHYSICAL]+" "),
+                    (equipmentStat[Param.STAT_MAGIC] == 0 ? "":"魔法属性+"+equipmentStat[Param.STAT_MAGIC]+" "),
+                    (equipmentStat[Param.STAT_PHYSICAL_RESISTANCE] == 0 ? "":"物抗+"+equipmentStat[Param.STAT_PHYSICAL_RESISTANCE]+" "),
+                    (equipmentStat[Param.STAT_MAGIC_RESISTANCE] == 0 ? "":"法抗+"+equipmentStat[Param.STAT_MAGIC_RESISTANCE]+" "),
+                    (equipmentStat[Param.STAT_HEALTH] == 0 ? "":"生命值+"+equipmentStat[Param.STAT_HEALTH]+" "),
+                    (equipmentStat[Param.STAT_ATTACK] == 0 ? "":"物攻+"+equipmentStat[Param.STAT_ATTACK]+" "),
                     (equipmentStat[Param.STAT_MAGIC_ATTACK] == 0 ? "":"法攻+"+equipmentStat[Param.STAT_MAGIC_ATTACK])
             );
         }
@@ -115,12 +115,12 @@ public class MinorArcana {
             return "【%s】\n%s\n%s%s%s%s%s%s%s".formatted(
                     getOutPutName(),
                     information,
-                    (equipmentStat[Param.STAT_PHYSICAL] == 0 ? "":"物理属性+"+equipmentStat[Param.STAT_PHYSICAL]),
-                    (equipmentStat[Param.STAT_MAGIC] == 0 ? "":"魔法属性+"+equipmentStat[Param.STAT_MAGIC]),
-                    (equipmentStat[Param.STAT_PHYSICAL_RESISTANCE] == 0 ? "":"物抗+"+equipmentStat[Param.STAT_PHYSICAL_RESISTANCE]),
-                    (equipmentStat[Param.STAT_MAGIC_RESISTANCE] == 0 ? "":"法抗+"+equipmentStat[Param.STAT_MAGIC_RESISTANCE]),
-                    (equipmentStat[Param.STAT_HEALTH] == 0 ? "":"生命值+"+equipmentStat[Param.STAT_HEALTH]),
-                    (equipmentStat[Param.STAT_ATTACK] == 0 ? "":"物攻+"+equipmentStat[Param.STAT_ATTACK]),
+                    (equipmentStat[Param.STAT_PHYSICAL] == 0 ? "":"物理属性+"+equipmentStat[Param.STAT_PHYSICAL]+" "),
+                    (equipmentStat[Param.STAT_MAGIC] == 0 ? "":"魔法属性+"+equipmentStat[Param.STAT_MAGIC]+" "),
+                    (equipmentStat[Param.STAT_PHYSICAL_RESISTANCE] == 0 ? "":"物抗+"+equipmentStat[Param.STAT_PHYSICAL_RESISTANCE]+" "),
+                    (equipmentStat[Param.STAT_MAGIC_RESISTANCE] == 0 ? "":"法抗+"+equipmentStat[Param.STAT_MAGIC_RESISTANCE]+" "),
+                    (equipmentStat[Param.STAT_HEALTH] == 0 ? "":"生命值+"+equipmentStat[Param.STAT_HEALTH]+" "),
+                    (equipmentStat[Param.STAT_ATTACK] == 0 ? "":"物攻+"+equipmentStat[Param.STAT_ATTACK]+" "),
                     (equipmentStat[Param.STAT_MAGIC_ATTACK] == 0 ? "":"法攻+"+equipmentStat[Param.STAT_MAGIC_ATTACK])
             );
         }
@@ -181,12 +181,12 @@ public class MinorArcana {
             return "【%s】\n%s\n%s%s%s%s%s%s%s".formatted(
                     getOutPutName(),
                     information,
-                    (equipmentStat[Param.STAT_PHYSICAL] == 0 ? "":"物理属性+"+equipmentStat[Param.STAT_PHYSICAL]),
-                    (equipmentStat[Param.STAT_MAGIC] == 0 ? "":"魔法属性+"+equipmentStat[Param.STAT_MAGIC]),
-                    (equipmentStat[Param.STAT_PHYSICAL_RESISTANCE] == 0 ? "":"物抗+"+equipmentStat[Param.STAT_PHYSICAL_RESISTANCE]),
-                    (equipmentStat[Param.STAT_MAGIC_RESISTANCE] == 0 ? "":"法抗+"+equipmentStat[Param.STAT_MAGIC_RESISTANCE]),
-                    (equipmentStat[Param.STAT_HEALTH] == 0 ? "":"生命值+"+equipmentStat[Param.STAT_HEALTH]),
-                    (equipmentStat[Param.STAT_ATTACK] == 0 ? "":"物攻+"+equipmentStat[Param.STAT_ATTACK]),
+                    (equipmentStat[Param.STAT_PHYSICAL] == 0 ? "":"物理属性+"+equipmentStat[Param.STAT_PHYSICAL]+" "),
+                    (equipmentStat[Param.STAT_MAGIC] == 0 ? "":"魔法属性+"+equipmentStat[Param.STAT_MAGIC]+" "),
+                    (equipmentStat[Param.STAT_PHYSICAL_RESISTANCE] == 0 ? "":"物抗+"+equipmentStat[Param.STAT_PHYSICAL_RESISTANCE]+" "),
+                    (equipmentStat[Param.STAT_MAGIC_RESISTANCE] == 0 ? "":"法抗+"+equipmentStat[Param.STAT_MAGIC_RESISTANCE]+" "),
+                    (equipmentStat[Param.STAT_HEALTH] == 0 ? "":"生命值+"+equipmentStat[Param.STAT_HEALTH]+" "),
+                    (equipmentStat[Param.STAT_ATTACK] == 0 ? "":"物攻+"+equipmentStat[Param.STAT_ATTACK]+" "),
                     (equipmentStat[Param.STAT_MAGIC_ATTACK] == 0 ? "":"法攻+"+equipmentStat[Param.STAT_MAGIC_ATTACK])
             );
         }
@@ -248,12 +248,12 @@ public class MinorArcana {
             return "【%s】\n%s\n%s%s%s%s%s%s%s".formatted(
                     getOutPutName(),
                     information,
-                    (equipmentStat[Param.STAT_PHYSICAL] == 0 ? "":"物理属性+"+equipmentStat[Param.STAT_PHYSICAL]),
-                    (equipmentStat[Param.STAT_MAGIC] == 0 ? "":"魔法属性+"+equipmentStat[Param.STAT_MAGIC]),
-                    (equipmentStat[Param.STAT_PHYSICAL_RESISTANCE] == 0 ? "":"物抗+"+equipmentStat[Param.STAT_PHYSICAL_RESISTANCE]),
-                    (equipmentStat[Param.STAT_MAGIC_RESISTANCE] == 0 ? "":"法抗+"+equipmentStat[Param.STAT_MAGIC_RESISTANCE]),
-                    (equipmentStat[Param.STAT_HEALTH] == 0 ? "":"生命值+"+equipmentStat[Param.STAT_HEALTH]),
-                    (equipmentStat[Param.STAT_ATTACK] == 0 ? "":"物攻+"+equipmentStat[Param.STAT_ATTACK]),
+                    (equipmentStat[Param.STAT_PHYSICAL] == 0 ? "":"物理属性+"+equipmentStat[Param.STAT_PHYSICAL]+" "),
+                    (equipmentStat[Param.STAT_MAGIC] == 0 ? "":"魔法属性+"+equipmentStat[Param.STAT_MAGIC]+" "),
+                    (equipmentStat[Param.STAT_PHYSICAL_RESISTANCE] == 0 ? "":"物抗+"+equipmentStat[Param.STAT_PHYSICAL_RESISTANCE]+" "),
+                    (equipmentStat[Param.STAT_MAGIC_RESISTANCE] == 0 ? "":"法抗+"+equipmentStat[Param.STAT_MAGIC_RESISTANCE]+" "),
+                    (equipmentStat[Param.STAT_HEALTH] == 0 ? "":"生命值+"+equipmentStat[Param.STAT_HEALTH]+" "),
+                    (equipmentStat[Param.STAT_ATTACK] == 0 ? "":"物攻+"+equipmentStat[Param.STAT_ATTACK]+" "),
                     (equipmentStat[Param.STAT_MAGIC_ATTACK] == 0 ? "":"法攻+"+equipmentStat[Param.STAT_MAGIC_ATTACK])
             );
         }

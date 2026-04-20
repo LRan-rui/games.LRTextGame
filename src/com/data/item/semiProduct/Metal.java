@@ -59,6 +59,10 @@ public enum Metal implements SemiProduct {
                 }
             }
         }
-        return getOutPutName() + "\n" + information +(useGroup == null ? "" : "\n"+useGroup.formatUseGroup())+ crafts;
+        return "%s\n%s%s%s".formatted(
+                getOutPutName(),
+                information,
+                useGroup == null ? "" : "\n" + useGroup.formatUseGroup(),
+                crafts);
     }
 }

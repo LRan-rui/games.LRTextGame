@@ -19,5 +19,11 @@ public class Param {
     public static final String MINING_NUM = "Mining_Number";
     public static final String LOGGING_NUM = "Logging_Number";
 
+    public static final String S = "S";
+    public static final String A = "A";
+    public static final String B = "B";
+    public static final String C = "C";
+    public static final String D = "D";
+
     public static final String[] ROMAN_NUMERALS = {"0","I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV","XV","XVI","XVII","XVIII","XIX","XX","XXI"};
 }

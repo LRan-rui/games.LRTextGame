@@ -3,7 +3,9 @@ package com.command.shop;
 import com.data.Thing;
 
 public enum ShopItem {
-    ENERGY(2, null);
+    ENERGY(2, null),
+
+    ;
 
     private final int price;
     private final Thing thing;

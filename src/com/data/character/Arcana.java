@@ -53,7 +53,7 @@ public enum Arcana implements Character {
     }
 
     public String getInformation() {
-        return "【%s】 %s\n------------------------\n%s\n------------------------\n修炼时间:%d分%d秒  [%d-%d]\n物理属性:%d 魔法属性:%d 物抗:%d 法抗:%d".formatted(NameID, Param.ROMAN_NUMERALS[getNumID()],information,HoneTime/60000,(HoneTime%60000)/1000,HoneLoot[0],HoneLoot[1],StatNum[0],StatNum[1],StatNum[2],StatNum[3]);
+        return "【%s】\n------------------------\n%s\n------------------------\n修炼时间:%d分%d秒  [%d-%d]\n物理属性:%d 魔法属性:%d 物抗:%d 法抗:%d".formatted(getOutPutName(),information,HoneTime/60000,(HoneTime%60000)/1000,HoneLoot[0],HoneLoot[1],StatNum[0],StatNum[1],StatNum[2],StatNum[3]);
     }
 
     public long getHoneTime() {
@@ -69,4 +69,8 @@ public enum Arcana implements Character {
     }
 
 
+    @Override
+    public String getOutPutName() {
+        return "%s⛦%s".formatted(getNameID(),Param.ROMAN_NUMERALS[getNumID()]);
+    }
 }

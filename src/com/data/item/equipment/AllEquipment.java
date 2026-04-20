@@ -22,6 +22,10 @@ public class AllEquipment {
         for (Equipment equipment : MinorArcana.Pentacles.values()) {
             EQUIPMENT.put(equipment.getNameID(), equipment);
         }
+
+        for (Equipment equipment : SwordCraft.values()) {
+            EQUIPMENT.put(equipment.getNameID(), equipment);
+        }
     }
 
     public static HashMap<String, Equipment> getEQUIPMENT() {

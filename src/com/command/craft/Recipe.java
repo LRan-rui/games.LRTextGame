@@ -68,9 +68,15 @@ public class Recipe {
     }
 
     public String formatString(){
-        StringBuilder rtn = new StringBuilder("合成【%s】，需要：\n".formatted(this.craftingOutPut.getNameID()));
+        StringBuilder rtn = new StringBuilder("合成【%s】，需要：".formatted(this.craftingOutPut.getNameID()));
+        int x = 0;
         for (Thing thing : this.needThings.keySet()) {
-            rtn.append("【").append(thing.getNameID()).append("】×").append(needThings.get(thing)).append("\n");
+            if (x++ % 2 == 0){
+                rtn.append("\n");
+            }else {
+                rtn.append(" ");
+            }
+            rtn.append("【").append(thing.getNameID()).append("】×").append(needThings.get(thing));
         }
         return rtn.toString();
     }

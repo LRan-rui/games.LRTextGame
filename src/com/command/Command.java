@@ -38,6 +38,9 @@ public class Command {
      *
      * <p>接受命令command和参数param（可空）并查找对应CommandCode枚举，
      * 返回对应命令的文本执行结果。
+     * <p>如果command不存在,
+     * 尝试将其传入{@code CommandCode.HELP_THING.Run(command)}中，
+     * 尝试其是否是为玩家需要介绍的物品。
      *
      * @param command 命令名称
      * @param param   命令参数
@@ -45,7 +48,10 @@ public class Command {
      */
     public static String Input(String command, String param) {
         CommandCode c = COMMAND.get(command);
-        return c != null ? c.Run(param) : Signal.COMMAND_NOT_FOUND_ERROR.getSignal();
+        //为HELP_THING”介绍“命令专门加入了适配，允许直接键入对象名称来获取介绍
+        return c != null ? c.Run(param) :
+            (CommandCode.HELP_THING.Run(command).equals(Signal.THING_NOT_FOUND_ERROR.getSignal())? Signal.COMMAND_NOT_FOUND_ERROR.getSignal() :
+                CommandCode.HELP_THING.Run(command));
     }
 
     /**
@@ -62,7 +68,7 @@ public class Command {
         SET_CHARACTERS(new String[]{"修改角色"}, "修改角色为新角色"),
         SET_PLAYER_ID(new String[]{"改名", "修改名字"}, "修改角色的名字"),
         HELP(new String[]{"帮助", "[帮助]"}, "命令列表,或返回命令的别名，如“帮助帮助”"),
-        HELP_THING(new String[]{"介绍"},"介绍某物品或任务"),
+        HELP_THING(new String[]{"介绍"},"介绍某物品或任务，直接输入名称也可查询介绍"),
         //--------------------------------------------------------------------------------------
         HONE(new String[]{"修炼", "修行", "观悟"}, "开始修炼或结束修炼"),
         EXIT_HONE(new String[]{"结束修炼"}, "强制结束修炼，可能没有收益"),

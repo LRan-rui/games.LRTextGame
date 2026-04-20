@@ -1,6 +1,7 @@
 package com.command;
 
 import com.central.Signal;
+import com.data.ThingManager;
 import com.data.ZeroManager;
 import com.data.Zero;
 import com.save.SaveData;
@@ -38,7 +39,7 @@ public class Information {
         StringBuilder rtn = new StringBuilder("我的背包\n------------------------\n");
         boolean x = true;
         for (Map.Entry<String, Integer> entry : saveData.getPlayer_Bag().entrySet()) {
-            rtn.append("【").append(entry.getKey()).append("】x").append(entry.getValue());
+            rtn.append("【").append(ThingManager.findThing(entry.getKey()).getOutPutName()).append("】x").append(entry.getValue());
             if (x) {
                 x = false;
                 rtn.append("   ");
@@ -60,7 +61,7 @@ public class Information {
         StringBuilder rtn = new StringBuilder("我的角色\n------------------------\n");
         boolean x = true;
         for (Map.Entry<String, Integer> entry : saveData.getCharacter_Bag().entrySet()) {
-            rtn.append("【").append(entry.getKey()).append("】x").append(entry.getValue());
+            rtn.append("【").append(ThingManager.findThing(entry.getKey()).getOutPutName()).append("】x").append(entry.getValue());
             if (x) {
                 x = false;
                 rtn.append("   ");
