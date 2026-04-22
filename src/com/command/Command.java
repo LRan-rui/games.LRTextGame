@@ -6,7 +6,7 @@ import com.command.action.EnergyManager;
 import com.command.action.Logging;
 import com.command.action.Mining;
 import com.command.craft.Craft;
-import com.command.fight.EquipmentManager;
+import com.data.item.equipment.EquipmentManager;
 import com.command.fight.Stat;
 import com.command.quest.QuestManager;
 import com.command.shop.ShopManager;
@@ -63,8 +63,7 @@ public class Command {
         EXIT(new String[]{"退出",}, "退出游戏"),
         INTRODUCTION(new String[]{"你好", "你是", "?", "？"}, "介绍游戏"),
         PLAYER_INFORMATION(new String[]{"我的信息",}, "角色的详细信息"),
-        BOX_INFORMATION(new String[]{"我的背包"}, "查看背包"),
-        CHARACTERS_INFORMATION(new String[]{"我的角色"}, "查看角色"),
+        BOX_INFORMATION(new String[]{"我的"}, "查看背包中的各种东西，如我的背包，我的角色，我的任务，我的原材料"),
         SET_CHARACTERS(new String[]{"修改角色"}, "修改角色为新角色"),
         SET_PLAYER_ID(new String[]{"改名", "修改名字"}, "修改角色的名字"),
         HELP(new String[]{"帮助", "[帮助]"}, "命令列表,或返回命令的别名，如“帮助帮助”"),
@@ -85,7 +84,6 @@ public class Command {
         MINING(new String[]{"挖矿", "采矿"}, "挖矿n次"),
         LOGGING(new String[]{"采伐","砍伐","砍树"},"采伐n次"),
         //--------------------------------------------------------------------------------------
-        ALL_QUEST(new String[]{"我的任务","任务"},"任务清单"),
         ACHIEVE_QUEST(new String[]{"完成任务", "提交"}, "完成一个任务"),
         //--------------------------------------------------------------------------------------
         BUY(new String[]{"购买", "买"}, "购买商品"),
@@ -167,11 +165,7 @@ public class Command {
                     break;
                 }
                 case BOX_INFORMATION: {
-                    rtn = Information.getBoxInformation();
-                    break;
-                }
-                case CHARACTERS_INFORMATION: {
-                    rtn = Information.getCharactersInformation();
+                    rtn = Information.getBoxInformation(param);
                     break;
                 }
                 case SET_CHARACTERS: {
@@ -244,10 +238,6 @@ public class Command {
                     break;
                 }
 //--------------------------------------------------------------------------------------
-                case ALL_QUEST: {
-                    rtn = QuestManager.getQuestList();
-                    break;
-                }
                 case ACHIEVE_QUEST: {
                     rtn = QuestManager.achieveQuest(param);
                     break;

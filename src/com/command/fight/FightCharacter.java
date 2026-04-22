@@ -30,4 +30,8 @@ public class FightCharacter {
         this(stat[0],stat[1],stat[2],stat[3],stat[4],stat[5],stat[6],new SkillGroup());
     }
 
+    public FightCharacter(int[] stat,SkillGroup skillGroup){
+        this(stat[0],stat[1],stat[2],stat[3],stat[4],stat[5],stat[6],skillGroup);
+    }
+
 }

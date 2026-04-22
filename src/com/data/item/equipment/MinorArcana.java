@@ -2,6 +2,7 @@ package com.data.item.equipment;
 
 import com.central.Signal;
 import com.command.Param;
+import com.command.fight.SkillGroup;
 
 public class MinorArcana {
     public enum Wands implements Equipment {
@@ -43,6 +44,11 @@ public class MinorArcana {
 
         public int[] getEquipmentStat() {
             return equipmentStat;
+        }
+
+        @Override
+        public SkillGroup getSkillGroup() {
+            return null;
         }
 
         public String getInformation() {
@@ -111,6 +117,11 @@ public class MinorArcana {
             return equipmentStat;
         }
 
+        @Override
+        public SkillGroup getSkillGroup() {
+            return null;
+        }
+
         public String getInformation() {
             return "【%s】\n%s\n%s%s%s%s%s%s%s".formatted(
                     getOutPutName(),
@@ -175,6 +186,11 @@ public class MinorArcana {
 
         public int[] getEquipmentStat() {
             return equipmentStat;
+        }
+
+        @Override
+        public SkillGroup getSkillGroup() {
+            return null;
         }
 
         public String getInformation() {
@@ -242,6 +258,11 @@ public class MinorArcana {
 
         public int[] getEquipmentStat() {
             return equipmentStat;
+        }
+
+        @Override
+        public SkillGroup getSkillGroup() {
+            return null;
         }
 
         public String getInformation() {

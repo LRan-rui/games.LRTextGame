@@ -1,12 +1,49 @@
-package com.command.fight;
+package com.data.item.equipment;
 
 import com.central.Signal;
-import com.data.item.equipment.AllEquipment;
 import com.save.SaveData;
 
+import java.util.HashMap;
+
 public class EquipmentManager {
+
+    private static final HashMap<String, Equipment> EQUIPMENT = new HashMap<>();
+
+    static {
+        for (Equipment equipment : MinorArcana.Wands.values()) {
+            EQUIPMENT.put(equipment.getNameID(), equipment);
+        }
+        for (Equipment equipment : MinorArcana.Cups.values()) {
+            EQUIPMENT.put(equipment.getNameID(), equipment);
+        }
+        for (Equipment equipment : MinorArcana.Swords.values()) {
+            EQUIPMENT.put(equipment.getNameID(), equipment);
+        }
+        for (Equipment equipment : MinorArcana.Pentacles.values()) {
+            EQUIPMENT.put(equipment.getNameID(), equipment);
+        }
+
+        for (Equipment equipment : SwordCraft.values()) {
+            EQUIPMENT.put(equipment.getNameID(), equipment);
+        }
+    }
+
+    public static HashMap<String, Equipment> getEQUIPMENT() {
+        return EQUIPMENT;
+    }
+
+    public static String isEquipment(String equipment) {
+        Equipment equip = EQUIPMENT.get(equipment);
+        return equip != null ? equip.getNameID() : Signal.THING_NOT_FOUND_ERROR.getSignal();
+    }
+
+    public static Equipment toEquipment(String equipment) {
+        return EQUIPMENT.get(equipment);
+    }
+
+
     public static String setEquipment(String equipment) {
-        if (AllEquipment.isEquipment(equipment).equals(Signal.THING_NOT_FOUND_ERROR.getSignal())) {
+        if (isEquipment(equipment).equals(Signal.THING_NOT_FOUND_ERROR.getSignal())) {
             return Signal.THING_NOT_FOUND_ERROR.getSignal();
         }
 
@@ -29,7 +66,7 @@ public class EquipmentManager {
     }
 
     public static String removeEquipment(String equipment) {
-        if (AllEquipment.isEquipment(equipment).equals(Signal.THING_NOT_FOUND_ERROR.getSignal())) {
+        if (isEquipment(equipment).equals(Signal.THING_NOT_FOUND_ERROR.getSignal())) {
             return Signal.THING_NOT_FOUND_ERROR.getSignal();
         }
 

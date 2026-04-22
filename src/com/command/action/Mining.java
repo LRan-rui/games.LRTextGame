@@ -2,7 +2,7 @@ package com.command.action;
 
 import com.command.Param;
 import com.data.item.material.Material;
-import com.data.item.material.Ore;
+import com.data.item.material.OreGroup;
 import com.save.SaveData;
 
 import java.util.HashMap;
@@ -34,11 +34,11 @@ public class Mining extends Action {
         for (int i = 0; i < x; i++) {
             Material[] materials = materials();
             int rtnMaxNum = 0;
-            if (materials[0] == Ore.S.values()[0]) rtnMaxNum = 1 + level / 5;
-            if (materials[0] == Ore.A.values()[0]) rtnMaxNum = 1 + level / 4;
-            if (materials[0] == Ore.B.values()[0]) rtnMaxNum = 1 + level / 3;
-            if (materials[0] == Ore.C.values()[0]) rtnMaxNum = 2 + level / 2;
-            if (materials[0] == Ore.D.values()[0]) rtnMaxNum = 3 + level;
+            if (materials[0] == OreGroup.S.values()[0]) rtnMaxNum = 1 + level / 5;
+            if (materials[0] == OreGroup.A.values()[0]) rtnMaxNum = 1 + level / 4;
+            if (materials[0] == OreGroup.B.values()[0]) rtnMaxNum = 1 + level / 3;
+            if (materials[0] == OreGroup.C.values()[0]) rtnMaxNum = 2 + level / 2;
+            if (materials[0] == OreGroup.D.values()[0]) rtnMaxNum = 3 + level;
 
             Material material = materials[(int) (Math.random() * materials.length)];
             rand.setSeed(System.currentTimeMillis());
@@ -85,11 +85,11 @@ public class Mining extends Action {
 
     private static Material[] materials() {
         reNewLevel();
-        Ore.S[] oreS = Ore.S.values();
-        Ore.A[] oreA = Ore.A.values();
-        Ore.B[] oreB = Ore.B.values();
-        Ore.C[] oreC = Ore.C.values();
-        Ore.D[] oreD = Ore.D.values();
+        OreGroup.S[] oreS = OreGroup.S.values();
+        OreGroup.A[] oreA = OreGroup.A.values();
+        OreGroup.B[] oreB = OreGroup.B.values();
+        OreGroup.C[] oreC = OreGroup.C.values();
+        OreGroup.D[] oreD = OreGroup.D.values();
 
         Material[] materials;
 

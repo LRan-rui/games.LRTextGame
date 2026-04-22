@@ -1,7 +1,7 @@
 package com.command.quest;
 
 import com.central.Signal;
-import com.data.item.material.Ore;
+import com.data.item.material.OreGroup;
 
 import java.util.HashMap;
 
@@ -19,8 +19,8 @@ public class NormalQuest {
     }
 
     enum QuestList implements Quest {
-        FIX_WALL("修补城墙", "为城墙修补工程提供材料", new ThingGroup(Ore.D.LIMESTONE, 10), new RewardGroup(10, 1, 5)),
-        BUILD_WALL("修建城墙", "为城墙扩建项目提供材料", new ThingGroup(Ore.C.MARBLE, 5), new RewardGroup(50, 2, 10)),
+        FIX_WALL("修补城墙", "为城墙修补工程提供材料", new ThingGroup(OreGroup.D.LIMESTONE, 10), new RewardGroup(10, 1, 5)),
+        BUILD_WALL("修建城墙", "为城墙扩建项目提供材料", new ThingGroup(OreGroup.C.MARBLE, 5), new RewardGroup(50, 2, 10)),
         ;
         private final String nameID;
         private final String information;

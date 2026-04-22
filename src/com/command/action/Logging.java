@@ -2,7 +2,7 @@ package com.command.action;
 
 import com.command.Param;
 import com.data.item.material.Material;
-import com.data.item.material.Plant;
+import com.data.item.material.PlantGroup;
 import com.save.SaveData;
 
 import java.util.HashMap;
@@ -34,11 +34,11 @@ public class Logging extends Action{
         for (int i = 0; i < x; i++) {
             Material[] materials = materials();
             int rtnMaxNum = 0;
-            if (materials[0] == Plant.S.values()[0]) rtnMaxNum = 1 + level / 5;
-            if (materials[0] == Plant.A.values()[0]) rtnMaxNum = 1 + level / 4;
-            if (materials[0] == Plant.B.values()[0]) rtnMaxNum = 1 + level / 3;
-            if (materials[0] == Plant.C.values()[0]) rtnMaxNum = 2 + level / 2;
-            if (materials[0] == Plant.D.values()[0]) rtnMaxNum = 3 + level;
+            if (materials[0] == PlantGroup.S.values()[0]) rtnMaxNum = 1 + level / 5;
+            if (materials[0] == PlantGroup.A.values()[0]) rtnMaxNum = 1 + level / 4;
+            if (materials[0] == PlantGroup.B.values()[0]) rtnMaxNum = 1 + level / 3;
+            if (materials[0] == PlantGroup.C.values()[0]) rtnMaxNum = 2 + level / 2;
+            if (materials[0] == PlantGroup.D.values()[0]) rtnMaxNum = 3 + level;
 
             Material material = materials[(int) (Math.random() * materials.length)];
             rand.setSeed(System.currentTimeMillis());
@@ -83,11 +83,11 @@ public class Logging extends Action{
 
     private static Material[] materials() {
         reNewLevel();
-        Plant.S[] S = Plant.S.values();
-        Plant.A[] A = Plant.A.values();
-        Plant.B[] B = Plant.B.values();
-        Plant.C[] C = Plant.C.values();
-        Plant.D[] D = Plant.D.values();
+        PlantGroup.S[] S = PlantGroup.S.values();
+        PlantGroup.A[] A = PlantGroup.A.values();
+        PlantGroup.B[] B = PlantGroup.B.values();
+        PlantGroup.C[] C = PlantGroup.C.values();
+        PlantGroup.D[] D = PlantGroup.D.values();
 
         Material[] materials;
 

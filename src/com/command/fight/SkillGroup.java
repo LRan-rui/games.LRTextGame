@@ -24,16 +24,20 @@ public class SkillGroup {
 
     }
 
+    public void addSkillGroup(SkillGroup skillGroup) {
+        this.skills.addAll(skillGroup.getSkills());
+    }
+
     public HashSet<Skill>  getSkills() {
         return skills;
     }
 
     public String formatSkillGroup(){
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder("技能:");
         for (Skill skill : skills){
-
+            sb.append("\n").append(skill.formatSkill());
         }
-        return "".formatted();
+        return sb.toString();
     }
 
 }
