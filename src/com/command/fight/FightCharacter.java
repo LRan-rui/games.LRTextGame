@@ -34,4 +34,43 @@ public class FightCharacter {
         this(stat[0],stat[1],stat[2],stat[3],stat[4],stat[5],stat[6],skillGroup);
     }
 
+    public void attack(Fight fight,FightCharacter other){
+
+    }
+
+    public void attack(Fight fight,FightCharacter[] others){
+
+    }
+
+    public int getMagic() {
+        return magic;
+    }
+
+    public int getPhysical() {
+        return physical;
+    }
+
+    public int getPhysical_resistance() {
+        return physical_resistance;
+    }
+
+    public int getMagic_resistance() {
+        return magic_resistance;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public int getAttack() {
+        return attack;
+    }
+
+    public int getMagic_attack() {
+        return magic_attack;
+    }
+
+    public SkillGroup getSkillGroup() {
+        return skillGroup;
+    }
 }
