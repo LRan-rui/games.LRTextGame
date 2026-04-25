@@ -1,0 +1,32 @@
+package com.example.lrtextgame.command;
+
+import com.example.lrtextgame.central.Signal;
+import com.example.lrtextgame.data.character.Arcana;
+import com.example.lrtextgame.save.SaveData;
+
+import java.util.HashMap;
+
+public class PlayerCharacterManager {
+
+    private static final HashMap<String, Arcana> CHARACTERS = new HashMap<>();
+
+    static {
+        for (Arcana character : Arcana.values()) {
+            CHARACTERS.put(character.getNameID(), character);
+        }
+    }
+
+    public static Arcana getCharacter(String nameID) {
+        return CHARACTERS.get(nameID) == null ? null : CHARACTERS.get(nameID);
+    }
+
+    public static String setCharacter(String characterNameID) {
+        SaveData saveData = SaveData.getSaveData();
+
+        if (saveData.getCharacter_Bag().get(characterNameID) == null) {
+            return Signal.THING_NOT_FOUND_ERROR.getSignal();
+        }
+        saveData.setPlayerCharacter(getCharacter(characterNameID));
+        return String.format("成功设置角色【%s☆%d】", characterNameID, saveData.getCharacter_Bag().get(characterNameID));
+    }
+}

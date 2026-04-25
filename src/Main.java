@@ -1,5 +1,5 @@
-import com.central.CentralHandler;
-import com.save.SaveData;
+import com.example.lrtextgame.central.CentralHandler;
+import com.example.lrtextgame.save.SaveData;
 
 import java.util.Scanner;
 
