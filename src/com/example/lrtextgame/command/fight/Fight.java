@@ -16,13 +16,21 @@ public class Fight {
     }
 
     private boolean isEnd(){
+        boolean playerEnd = true;
+        boolean otherPlayerEnd = true;
         for(FightCharacter player : this.player) {
-            if (player.isAlive()) return false;
+            if (player.isAlive()) {
+                playerEnd = false;
+                break;
+            }
         }
         for (FightCharacter other : otherPlayers){
-            if (other.isAlive()) return false;
+            if (other.isAlive()) {
+                otherPlayerEnd = false;
+                break;
+            }
         }
-        return true;
+        return playerEnd || otherPlayerEnd;
     }
 
 //返回值待定
@@ -30,6 +38,7 @@ public class Fight {
         Fight fight = new Fight(player,enemy);
 
         while (!fight.isEnd()){
+            fight.addTurn();
             for(FightCharacter fightPlayer : fight.player){
                 if (fightPlayer.isAlive()){
                     fightPlayer.attack(fight,enemy);
@@ -37,6 +46,7 @@ public class Fight {
             }
             if(fight.isEnd() && fight.message.getTitle() == Signal.FIGHT_WIN){
                 fight.setMessage(player);
+                break;
             }
             for (FightCharacter fightPlayer : fight.otherPlayers){
                 if (fightPlayer.isAlive()){
@@ -46,6 +56,7 @@ public class Fight {
             if(fight.isEnd() && fight.message.getTitle() == Signal.FIGHT_WIN){
                 fight.setSignal(Signal.FIGHT_LOSS);
                 fight.setMessage(player);
+                break;
             }
         }
         return  fight.message;
@@ -70,10 +81,10 @@ public class Fight {
 
     public void setMessage(FightCharacter[] players) {
         StringBuilder sb = new StringBuilder();
-        sb.append("第").append(this.turnNum).append("回合\n");
+        sb.append("第").append(this.turnNum).append("回合结束\n");
         for (FightCharacter player : players) {
             if (player.isAlive()) {
-                sb.append(player.getName()).append(player.getHealth()).append("/").append(player.getMaxHealth()).append("\n");
+                sb.append(player.getName()).append(" 剩余血量").append(player.getHealth()).append("/").append(player.getMaxHealth()).append("\n");
             }
         }
         message.setBody(sb.toString());
@@ -90,10 +101,15 @@ public class Fight {
     public static void main(String[] args) {
         SaveData.Start();
         SaveData saveData = SaveData.getSaveData();
-        System.out.println(toFight(
+        FightMessage fightMessage = toFight(
                 new FightCharacter[]{new FightCharacter(saveData.getPlayer_ID(),Stat.getStatArray(),Stat.getSkillGroup())},
-                new FightCharacter[]{new FightCharacter("敌人1",new int[]{10,10,10,10,2000,200,100}),
-                        new FightCharacter("敌人2",new int[]{10,10,10,10,2000,200,100}),
-                        new FightCharacter("敌人3",new int[]{10,10,10,10,2000,200,100})}));
+                new FightCharacter[]{new FightCharacter("敌人1",new int[]{10,10,10,10,4000,200,100}),
+                        new FightCharacter("敌人2",new int[]{10,10,10,10,4000,200,100}),
+                        new FightCharacter("敌人3",new int[]{10,10,10,10,4000,200,100}),
+                        new FightCharacter("敌人4",new int[]{10,10,10,10,4000,200,100}),
+                        new FightCharacter("敌人5",new int[]{10,10,10,10,4000,200,100})});
+        System.out.println(fightMessage.getTitle());
+        System.out.println(fightMessage.getBody());
+        System.out.println(fightMessage.getLogText());
     }
 }

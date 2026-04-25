@@ -58,6 +58,7 @@ public class FightCharacter {
     }
 
     public void attack(Fight fight, FightCharacter[] others) {
+        refresh();
         int enemyNum = 0;
         for (FightCharacter other : others) {
             if (other.isAlive()) {
@@ -104,30 +105,33 @@ public class FightCharacter {
     public void useSkill(Skill skill, FightCharacter[] enemy, int enemyNum,Fight fight) {
         StringBuilder logText = new StringBuilder("%s使用了【%s】,".formatted(this.getName(),skill.getOutPutName()));
 
+        skills.put(skill,skill.getCooldownTime());
+
         if (skill.getDamageNum() != 0 && skill.getDamageNum() < enemyNum) {
             enemyNum = skill.getDamageNum();
         }
 
         int damage = 0;
         int damageMagic = 0;
-        for (int i = 0; i < enemyNum; i++) {
+        int j = 0;
+        for (int i = 0; j < enemyNum; i++) {
             if(!enemy[i].isAlive()) {continue;}
             damage = (getAttack() * (Math.max(100 + getPhysical() - enemy[i].getPhysical_resistance(), 0)) * skill.getDamagePercent() / 10000);
             damageMagic = (getMagic_attack() * (Math.max(100 + getMagic() - enemy[i].getMagic_resistance(), 0)) * skill.getDamagePercentMagic() / 10000);
             enemy[i].subHealth(damage + damageMagic);
             //可用append优化字符串拼接
-            logText.append("对%s造成了%s%s，剩余%s".formatted(
+            logText.append("对%s造成了%s%s，剩余血量%s".formatted(
                     enemy[i].getName(),
                     skill.getDamagePercent() == 0 ? "" :
                             "%d点(%d%%)物理伤害%s".formatted(
                                     damage,
-                                    (Math.max(100 + getPhysical() - enemy[i].getPhysical_resistance(), 0)),
+                                    (Math.max(100 + getPhysical() - enemy[i].getPhysical_resistance(), 0) * skill.getDamagePercent() / 100),
                                     skill.getDamagePercentMagic() == 0 ? "" : "和"
                             ),
                     skill.getDamagePercentMagic() == 0 ? "" :
                             "%d点(%d%%)魔法伤害".formatted(
                                     damageMagic,
-                                    (Math.max(100 + getMagic() - enemy[i].getMagic_resistance(), 0))
+                                    (Math.max(100 + getMagic() - enemy[i].getMagic_resistance(), 0) * skill.getDamagePercentMagic() / 100)
                             ),
                     "%d/%d%s%s".formatted(
                             enemy[i].getHealth(),
@@ -136,9 +140,17 @@ public class FightCharacter {
                             i == enemyNum - 1 ? "。" : "，"
                             )
             ));
-            System.out.println(logText.toString());
+            j++;
         }
         fight.addLog(logText.toString());
+    }
+
+    private void refresh(){
+        for (Skill skill : skills.keySet()) {
+            if(skills.get(skill) != 1){
+                skills.put(skill,skills.get(skill) - 1);
+            }
+        }
     }
 
     public int getMagic() {
