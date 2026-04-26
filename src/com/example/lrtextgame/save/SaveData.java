@@ -16,7 +16,9 @@ public class SaveData extends Data {
     private SaveData() {
     }
 
-    //读取存档
+    /**
+     * 初始化存档
+     */
     public static void Start() {
         SaveDataManager.setSaveData(saveData);
         System.out.println("存档初始化……");

@@ -6,6 +6,8 @@ import com.example.lrtextgame.command.action.EnergyManager;
 import com.example.lrtextgame.command.action.Logging;
 import com.example.lrtextgame.command.action.Mining;
 import com.example.lrtextgame.command.craft.Craft;
+import com.example.lrtextgame.command.fight.FightMessage;
+import com.example.lrtextgame.command.fight.Trial;
 import com.example.lrtextgame.data.item.equipment.EquipmentManager;
 import com.example.lrtextgame.command.fight.Stat;
 import com.example.lrtextgame.command.quest.QuestManager;
@@ -75,6 +77,8 @@ public class Command {
         //--------------------------------------------------------------------------------------
         SET_EQUIPMENT(new String[]{"装备"}, "装备装备"),
         REMOVE_EQUIPMENT(new String[]{"卸下"}, "卸下装备"),
+        TRIAL(new String[]{"试炼"},"开始试炼之塔"),
+        FIGHT_MASSAGE(new String[]{"战斗日志"},"查看最近的战斗日志"),
         //--------------------------------------------------------------------------------------
         CRAFT(new String[]{"合成"},"合成物品"),
         TO_CRAFT(new String[]{"预合成"},"查看合成物品所需材料"),
@@ -204,6 +208,14 @@ public class Command {
                 }
                 case REMOVE_EQUIPMENT: {
                     rtn = EquipmentManager.removeEquipment(param);
+                    break;
+                }
+                case TRIAL: {
+                    rtn = Trial.fightTrialTower();
+                    break;
+                }
+                case FIGHT_MASSAGE: {
+                    rtn = FightMessage.getMessage().getLogText();
                     break;
                 }
 //--------------------------------------------------------------------------------------

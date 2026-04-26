@@ -3,6 +3,10 @@ package com.example.lrtextgame.command.fight;
 import java.util.Arrays;
 import java.util.HashSet;
 
+/**
+ * 技能的容器
+ * @author 凌然
+ */
 public class SkillGroup {
     private HashSet<Skill> skills = new HashSet<>();
 

@@ -6,9 +6,17 @@ import com.example.lrtextgame.save.SaveData;
 
 import java.util.HashMap;
 
+/**
+ * 任务需求物品组
+ * @author 凌然
+ */
 public class ThingGroup {
     private final HashMap<Thing, Integer> needThings = new HashMap<>();
 
+    /**
+     * 声明一个任务需求物品组
+     * @param param 需要的物品和数量，参数必须成对出现：Thing，Integer，Thing,Integer...
+     */
     ThingGroup(Object... param) {
         if (param != null && param.length > 0) {
             if (param.length % 2 == 1) {
@@ -35,6 +43,10 @@ public class ThingGroup {
         }
     }
 
+    /**
+     * 判断背包里的物品是否足够
+     * @return 判断结果
+     */
     public String isEnoughThing() {
         SaveData saveData = SaveData.getSaveData();
         for (Thing thing : this.needThings.keySet()) {
@@ -47,6 +59,10 @@ public class ThingGroup {
         return Signal.RIGHT.getSignal();
     }
 
+    /**
+     * 提交物品
+     * @return 提交结果
+     */
     public String turnInThings() {
         if (isEnoughThing().equals(Signal.RIGHT.getSignal())) {
             SaveData saveData = SaveData.getSaveData();
@@ -58,6 +74,10 @@ public class ThingGroup {
         return Signal.THING_NOT_ENOUGH.getSignal();
     }
 
+    /**
+     * 格式化物品组
+     * @return 格式化结果
+     */
     public String formatString(){
         StringBuilder rtn = new StringBuilder();
         for (Thing thing : this.needThings.keySet()) {

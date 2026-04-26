@@ -4,7 +4,15 @@ import com.example.lrtextgame.central.Signal;
 import com.example.lrtextgame.command.Param;
 import com.example.lrtextgame.command.fight.SkillGroup;
 
+/**
+ * 抽卡装备类
+ * @author 凌然
+ */
 public class MinorArcana {
+    /**
+     * 小阿卡纳之权杖
+     * @author 凌然
+     */
     public enum Wands implements Equipment {
         ACE_OF_WANDS("权杖I", 1, "新行动或事业的开始，充满创造潜力与能量。", new int[]{0, 5, 0, 0, 0, 0, 0}),
         TWO_OF_WANDS("权杖II", 2, "在已有基础上规划下一步，权衡冒险与保守。", new int[]{0, 5, 0, 0, 0, 0, 0}),
@@ -76,6 +84,10 @@ public class MinorArcana {
         }
     }
 
+    /**
+     * 小阿卡纳之圣杯
+     * @author 凌然
+     */
     public enum Cups implements Equipment {
         ACE_OF_CUPS("圣杯I", 1, "情感的新开始，爱意或直觉的涌现。", new int[]{0, 0, 5, 0, 0, 0, 0}),
         TWO_OF_CUPS("圣杯II", 2, "平等的关系，爱情或友谊的结合。", new int[]{0, 0, 5, 0, 0, 0, 0}),
@@ -147,6 +159,10 @@ public class MinorArcana {
         }
     }
 
+    /**
+     * 小阿卡纳之宝剑
+     * @author 凌然
+     */
     public enum Swords implements Equipment {
         ACE_OF_SWORDS("宝剑I", 1, "清晰的理智，新观念或决断的胜利。", new int[]{5, 0, 0, 0, 0, 0, 0}),
         TWO_OF_SWORDS("宝剑II", 2, "自我防卫，拒绝面对真相，内心矛盾。", new int[]{5, 0, 0, 0, 0, 0, 0}),
@@ -218,6 +234,10 @@ public class MinorArcana {
         }
     }
 
+    /**
+     * 小阿卡纳之星币
+     * @author 凌然
+     */
     public enum Pentacles implements Equipment {
         ACE_OF_PENTACLES("星币I", 1, "物质的新机会，财富或健康的开端。", new int[]{0, 0, 0, 5, 0, 0, 0}),
         TWO_OF_PENTACLES("星币II", 2, "金钱或事务的平衡，应对波动与变化。", new int[]{0, 0, 0, 5, 0, 0, 0}),

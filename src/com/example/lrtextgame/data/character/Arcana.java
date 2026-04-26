@@ -2,6 +2,10 @@ package com.example.lrtextgame.data.character;
 
 import com.example.lrtextgame.command.Param;
 
+/**
+ * 大阿卡纳·角色枚举
+ * @author 凌然
+ */
 public enum Arcana implements Character {
     THE_FOOL("愚者", 0, "代表开始、天真与冒险，象征踏上未知旅程的初心。", 30 * 60 * 1000, new int[]{10, 50}, new int[]{0, 0, 0, 0}),
     THE_MAGICIAN("魔术师", 1, "代表创造力与行动力，能将意念转化为现实。", 40 * 60 * 1000, new int[]{20, 70}, new int[]{10, 20, 0, 10}),
@@ -52,6 +56,10 @@ public enum Arcana implements Character {
         return numID;
     }
 
+    /**
+     * 获取角色的基础属性
+     * @return 属性
+     */
     public String getInformation() {
         return "【%s】\n------------------------\n%s\n------------------------\n修炼时间:%d分%d秒  [%d-%d]\n物理属性:%d 魔法属性:%d 物抗:%d 法抗:%d".formatted(getOutPutName(),information,HoneTime/60000,(HoneTime%60000)/1000,HoneLoot[0],HoneLoot[1],StatNum[0],StatNum[1],StatNum[2],StatNum[3]);
     }

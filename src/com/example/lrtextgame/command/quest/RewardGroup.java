@@ -2,6 +2,10 @@ package com.example.lrtextgame.command.quest;
 
 import com.example.lrtextgame.save.SaveData;
 
+/**
+ * 任务奖励组
+ * @author 凌然
+ */
 public class RewardGroup {
     private final int money;
     private final int jewel;
@@ -13,6 +17,9 @@ public class RewardGroup {
         this.experiencePoints = experiencePoints;
     }
 
+    /**
+     * 获取奖励
+     */
     public void getRewards() {
         SaveData saveData = SaveData.getSaveData();
         saveData.setMoney(saveData.getMoney() + money);

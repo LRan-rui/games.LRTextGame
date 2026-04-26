@@ -5,6 +5,10 @@ import com.example.lrtextgame.command.craft.Craft;
 import com.example.lrtextgame.data.item.UseGroup;
 import com.example.lrtextgame.save.SaveData;
 
+/**
+ * 晶体类
+ * @author 凌然
+ */
 public enum Crystal implements SemiProduct{
     CRYSTAL_SHARD("碎晶","碎晶岩筛选好的晶体碎片，含有微弱的能量",new UseGroup(0,0,20,0));
 
@@ -26,9 +30,13 @@ public enum Crystal implements SemiProduct{
 
     @Override
     public String getOutPutName() {
-        return "【%s】".formatted(nameID);
+        return "\uD83D\uDD2E%s".formatted(nameID);
     }
 
+    /**
+     * 使用物品
+     * @return 使用结果
+     */
     @Override
     public String toUse() {
         if(useGroup == null){

@@ -11,12 +11,17 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * 提供抽卡相关方法
+ * @author 凌然
+ */
 public class Roll {
 
     public static final int PRICE = 10;
     private static final List<Thing> pool = new ArrayList<>();
     private static final List<Character> character_pool = new ArrayList<>();
 
+    //初始化卡池
     static {
         Collections.addAll(pool, MinorArcana.Wands.values());
         Collections.addAll(pool, MinorArcana.Cups.values());
@@ -26,10 +31,18 @@ public class Roll {
         Collections.addAll(character_pool, Arcana.values());
     }
 
+    /**
+     * 介绍抽卡
+     * @return 抽卡相关信息
+     */
     public static String roll() {
         return "---------------------------\n抽卡\n单抽10%几率抽到大阿卡纳，\n十连保底一张大阿卡纳\n\n [单抽]10宝石 [十连]88宝石\n---------------------------";
     }
 
+    /**
+     * 单抽
+     * @return 单抽结果
+     */
     public static String soloRoll() {
         long x = SaveData.getSaveData().getJewel() - PRICE;
         if (x < 0) {
@@ -41,6 +54,10 @@ public class Roll {
         }
     }
 
+    /**
+     * 十连抽
+     * @return 十连结果
+     */
     public static String multiRoll() {
         long x = (long) (SaveData.getSaveData().getJewel() - PRICE * 8.8);
         if (x < 0) {
@@ -49,6 +66,7 @@ public class Roll {
             SaveData.getSaveData().setJewel(x);
             String[] str = new String[10];
             Random rand = new Random();
+            //保底一个角色
             Thing thing = character_pool.get(rand.nextInt(character_pool.size()));
             SaveData.getSaveData().addCharacter((Character) thing);
             str[0] = thing.getOutPutName();
@@ -60,6 +78,10 @@ public class Roll {
         }
     }
 
+    /**
+     * 从卡池中随机抽取一张，并存入SaveData
+     * @return 抽取的物品对象
+     */
     private static Thing rollOneToAllArcana() {
         Random rand = new Random();
         if (rand.nextDouble() <= 0.1) {

@@ -5,6 +5,10 @@ import com.example.lrtextgame.command.Param;
 
 import java.util.HashMap;
 
+/**
+ * 战斗对象类
+ * @author 凌然
+ */
 public class FightCharacter {
     private final String name;
     private final int physical;
@@ -53,12 +57,26 @@ public class FightCharacter {
     }
 
 
+    /**
+     * 攻击敌方
+     * <p>选择造成伤害最多的技能使用，
+     * 对敌方造成相应的伤害
+     * @param fight 战斗数据类
+     * @param other 敌方
+     */
     public void attack(Fight fight, FightCharacter other) {
         attack(fight,new FightCharacter[]{other});
     }
 
+    /**
+     * 攻击敌方
+     * <p>选择造成伤害最多的技能使用，
+     * 对敌方造成相应的伤害
+     * @param fight 战斗数据类
+     * @param others 敌方
+     */
     public void attack(Fight fight, FightCharacter[] others) {
-        refresh();
+
         int enemyNum = 0;
         for (FightCharacter other : others) {
             if (other.isAlive()) {
@@ -70,6 +88,7 @@ public class FightCharacter {
 
         Skill toUseSkill = normalSkill;
         int maxDamage = 0;
+        //选择伤害量最大的技能
         for (Skill skill : skills.keySet()) {
             if (skills.get(skill) != 1) {
                 continue;
@@ -82,14 +101,25 @@ public class FightCharacter {
         }
         useSkill(toUseSkill,others,enemyNum,fight);
 
+        //刷新技能冷却
+        refresh();
+        //判断是否全歼敌方
         for (FightCharacter other : others) {
             if (other.isAlive()) {
                 return;
             }
         }
+        //告诉战斗已经结束
         fight.setSignal(Signal.FIGHT_WIN);
     }
 
+    /**
+     * 计算技能能造成的伤害量
+     * @param skill 技能
+     * @param enemy 敌方
+     * @param enemyNum 敌方的数量
+     * @return 伤害量
+     */
     private int computeDamage(Skill skill, FightCharacter[] enemy, int enemyNum) {
         int damage = 0;
         if (skill.getDamageNum() != 0 && skill.getDamageNum() < enemyNum) {
@@ -102,6 +132,13 @@ public class FightCharacter {
         return damage;
     }
 
+    /**
+     * 使用技能对敌方造成伤害
+     * @param skill 技能
+     * @param enemy 敌方
+     * @param enemyNum 敌方的数量
+     * @param fight 战斗数据类
+     */
     public void useSkill(Skill skill, FightCharacter[] enemy, int enemyNum,Fight fight) {
         StringBuilder logText = new StringBuilder("%s使用了【%s】,".formatted(this.getName(),skill.getOutPutName()));
 
@@ -116,8 +153,11 @@ public class FightCharacter {
         int j = 0;
         for (int i = 0; j < enemyNum; i++) {
             if(!enemy[i].isAlive()) {continue;}
+            //计算物理伤害
             damage = (getAttack() * (Math.max(100 + getPhysical() - enemy[i].getPhysical_resistance(), 0)) * skill.getDamagePercent() / 10000);
+            //计算魔法伤害
             damageMagic = (getMagic_attack() * (Math.max(100 + getMagic() - enemy[i].getMagic_resistance(), 0)) * skill.getDamagePercentMagic() / 10000);
+            //施加伤害
             enemy[i].subHealth(damage + damageMagic);
             //可用append优化字符串拼接
             logText.append("对%s造成了%s%s，剩余血量%s".formatted(
@@ -145,6 +185,9 @@ public class FightCharacter {
         fight.addLog(logText.toString());
     }
 
+    /**
+     * 刷新技能冷却
+     */
     private void refresh(){
         for (Skill skill : skills.keySet()) {
             if(skills.get(skill) != 1){
@@ -189,6 +232,10 @@ public class FightCharacter {
         this.health = health;
     }
 
+    /**
+     * 受到伤害
+     * @param subHealth 伤害量
+     */
     public void subHealth(int subHealth) {
         this.health -= subHealth;
         if (this.health <= 0) {

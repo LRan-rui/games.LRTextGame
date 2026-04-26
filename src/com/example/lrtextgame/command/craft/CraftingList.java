@@ -8,6 +8,10 @@ import com.example.lrtextgame.data.item.material.PlantGroup;
 import com.example.lrtextgame.data.item.semiProduct.Crystal;
 import com.example.lrtextgame.data.item.semiProduct.Metal;
 
+/**
+ * 合成表枚举及相关方法
+ * @author 凌然
+ */
 public enum CraftingList {
     CRAFT_TIN_INGOT(new Recipe(Metal.TIN_INGOT, OreGroup.C.TIN_ORE,2, OreGroup.D.COAL,5)),
     CRAFT_SLIVER_INGOT(new Recipe(Metal.SILVER_INGOT, OreGroup.A.SILVER_ORE,1, OreGroup.B.ANTHRACITE,5)),
@@ -30,11 +34,19 @@ public enum CraftingList {
     private final Recipe recipe;
     private final String nameID;
 
+    /**
+     * 声明一个配方
+     * @param recipe 配方对象
+     */
     CraftingList(Recipe recipe) {
         this.recipe = recipe;
         this.nameID = recipe.getCraftingOutPut().getNameID();
     }
 
+    /**
+     * 合成物品
+     * @return 合成结果
+     */
     public String toCraft(){
         String rtn = recipe.craftThings();
         return rtn.equals(Signal.RIGHT.getSignal()) ? "你合成了:%s".formatted(recipe.getCraftingOutPut().getNameID()) : Signal.THING_NOT_ENOUGH.getSignal();

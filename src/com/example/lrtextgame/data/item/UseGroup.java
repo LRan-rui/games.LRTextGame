@@ -2,6 +2,10 @@ package com.example.lrtextgame.data.item;
 
 import com.example.lrtextgame.save.SaveData;
 
+/**
+ * 使用组
+ * @author 凌然
+ */
 public class UseGroup {
     private final int money;
     private final int jewel;
@@ -15,6 +19,10 @@ public class UseGroup {
         this.energy=energy;
     }
 
+    /**
+     * 使用物品，获取奖励
+     * @return 使用效果
+     */
     public String toUse(){
         SaveData saveData = SaveData.getSaveData();
         saveData.setMoney(saveData.getMoney() + money);

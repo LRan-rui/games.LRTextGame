@@ -5,9 +5,15 @@ import com.example.lrtextgame.data.item.material.OreGroup;
 
 import java.util.HashMap;
 
+/**
+ * 日常任务
+ * <p>允许一直提交
+ * @author 凌然
+ */
 public class NormalQuest {
     private static final HashMap<String, Quest> NormalQuest_List = new HashMap<>();
 
+    //初始化任务列表
     static {
         for (Quest quest : QuestList.values()) {
             NormalQuest_List.put(quest.getNameID(), quest);
@@ -18,6 +24,10 @@ public class NormalQuest {
         return NormalQuest_List;
     }
 
+    /**
+     * 日常任务枚举
+     * @author 凌然
+     */
     enum QuestList implements Quest {
         FIX_WALL("修补城墙", "为城墙修补工程提供材料", new ThingGroup(OreGroup.D.LIMESTONE, 10), new RewardGroup(10, 1, 5)),
         BUILD_WALL("修建城墙", "为城墙扩建项目提供材料", new ThingGroup(OreGroup.C.MARBLE, 5), new RewardGroup(50, 2, 10)),
@@ -54,6 +64,10 @@ public class NormalQuest {
             return "常驻任务";
         }
 
+        /**
+         * 提交任务
+         * @return 提交结果
+         */
         @Override
         public String achieve() {
             if (this.needThings.turnInThings().equals(Signal.RIGHT.getSignal())) {

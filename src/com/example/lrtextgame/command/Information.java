@@ -21,7 +21,16 @@ import com.example.lrtextgame.save.SaveData;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 提供获取信息相关的方法
+ * @author 凌然
+ */
 public class Information {
+
+    /**
+     * 获取玩家相关信息的数组
+     * @return 信息的数组
+     */
     public static String[] getPlayerInformationArray() {
         SaveData saveData = SaveData.getSaveData();
         String[] rtn = new String[12];
@@ -41,13 +50,17 @@ public class Information {
         return rtn;
     }
 
+    /**
+     * 获取玩家信息
+     * @return 玩家信息
+     */
     public static String getPlayerInformation() {
         String[] rtn = getPlayerInformationArray();
         return String.format(" ☆%s☆\n 身份:【%s】  等级:Lv.%s  经验值:%s/%s\n 体力值%s\n 金币:%s  宝石:%s\n 装备\n------------------------\n %s   %s\n %s   %s\n------------------------",
                 rtn[0], rtn[1], rtn[2], rtn[3], rtn[4], rtn[5], rtn[6], rtn[7], rtn[8], rtn[9], rtn[10], rtn[11]);
     }
 
-
+    //支持查询的物品种类
     private static final HashMap<String,Class<?>> TYPE = new HashMap<>();
 
     static {
@@ -63,10 +76,16 @@ public class Information {
         TYPE.put("金属", Metal.class);
     }
 
+    /**
+     * 查询已有的特定物品/对象的列表
+     * @param param 物品种类
+     * @return 查询结果
+     */
     public static String getBoxInformation(String param) {
         SaveData saveData = SaveData.getSaveData();
         StringBuilder rtn = new StringBuilder();
 
+        //对于非背包内物品，跳转到相关方法
         if (param.equals("角色")){
             return getCharactersInformation();
         }else if(param.equals("任务")){
@@ -105,6 +124,10 @@ public class Information {
         return rtn.toString();
     }
 
+    /**
+     * 获取已有的角色列表
+     * @return 角色列表
+     */
     public static String getCharactersInformation() {
         SaveData saveData = SaveData.getSaveData();
         StringBuilder rtn = new StringBuilder("我的角色\n------------------------\n");
@@ -127,6 +150,11 @@ public class Information {
         return rtn.toString();
     }
 
+    /**
+     * 修改玩家名称
+     * @param newPlayerID 新名称
+     * @return 修改结果
+     */
     public static String setPlayerID(String newPlayerID) {
         if (newPlayerID.isBlank()) {
             return "请输入要改成的名字";
@@ -136,6 +164,11 @@ public class Information {
         return String.format("已修改名字为:%s", saveData.getPlayer_ID());
     }
 
+    /**
+     * 查询一个物品/对象的详细信息
+     * @param nameID 物品/对象ID
+     * @return 查询结果
+     */
     public static String getThingInformation(String nameID) {
         Zero zero = ZeroManager.getZeros().get(nameID);
         return zero != null ? zero.getInformation() : Signal.THING_NOT_FOUND_ERROR.getSignal();

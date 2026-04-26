@@ -78,8 +78,12 @@ public class MainWindow {
 
         frame.setSize(784, 603);
 
-        mainpanel.add(area);
-        mainpanel.add(new JScrollPane(area));
+        JScrollPane scroll = new JScrollPane(area);
+        scroll.getVerticalScrollBar().setUI(new UI());
+        scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+        //mainpanel.add(area);
+        mainpanel.add(scroll);
         frame.add(mainpanel);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -5,7 +5,10 @@ import com.example.lrtextgame.command.Param;
 import com.example.lrtextgame.command.fight.Skill;
 import com.example.lrtextgame.command.fight.SkillGroup;
 
-
+/**
+ * 刀剑类武器
+ * @author 凌然
+ */
 public enum SwordCraft implements Equipment{
     TIN_SWORD(Param.C,"锡剑","用锡打造的剑，质地较软，是较易获得的武器",new int[]{0,0,0,0,0,100,0},true),
     SILVER_SWORD(Param.A,"银剑","用银打造的利器，具有不俗的杀伤力",new int[]{10,10,0,0,0,1000,500},true,

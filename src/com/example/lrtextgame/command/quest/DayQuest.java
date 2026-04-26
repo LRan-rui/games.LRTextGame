@@ -6,10 +6,16 @@ import com.example.lrtextgame.save.SaveData;
 import java.time.LocalDate;
 import java.util.HashMap;
 
+/**
+ * 每日任务类
+ * <p>每日只允许提交一次
+ * @author 凌然
+ */
 public class DayQuest {
 
     private static final HashMap<String, Quest> DayQuest_List = new HashMap<>();
 
+    //初始化任务列表
     static {
         for (Quest quest : QuestList.values()) {
             DayQuest_List.put(quest.getNameID(), quest);
@@ -20,6 +26,10 @@ public class DayQuest {
         return DayQuest_List;
     }
 
+    /**
+     * 每日任务枚举
+     * @author 凌然
+     */
     private enum QuestList implements Quest {
         EVERYDAY_QUEST("每日补给", "每日签到任务", new ThingGroup(), new RewardGroup(200, 20, 0)),
         ;
@@ -56,6 +66,10 @@ public class DayQuest {
             return "每日任务";
         }
 
+        /**
+         * 提交任务
+         * @return 提交结果
+         */
         @Override
         public String achieve() {
             if (SaveData.getSaveData().getDayQuest_Last_Time().get(this.nameID) != null && SaveData.getSaveData().getDayQuest_Last_Time().get(this.nameID).equals(LocalDate.now().toString())) {

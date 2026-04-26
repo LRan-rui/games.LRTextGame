@@ -4,7 +4,15 @@ import com.example.lrtextgame.save.SaveData;
 
 import java.util.Random;
 
+/**
+ * 提供修炼相关方法
+ */
 public class Hone {
+    /**
+     * 修炼
+     * <p>检查修炼结果，时间满足则结束修炼，不满足则提示时间未到，未开始则开始修炼
+     * @return 修炼结果
+     */
     public static String hone() {
         if (SaveData.getSaveData().isGetXP()) {
             long x = SaveData.getSaveData().getStart_Time();
@@ -23,6 +31,10 @@ public class Hone {
         return start();
     }
 
+    /**
+     * 强制结束修炼
+     * @return 修炼结果
+     */
     public static String exitHone() {
         if (SaveData.getSaveData().isGetXP()) {
             long x = SaveData.getSaveData().getStart_Time();
@@ -40,6 +52,10 @@ public class Hone {
         return "你没有在修炼";
     }
 
+    /**
+     * 突破等级
+     * @return 突破结果
+     */
     public static String Breakthrough() {
         int x = SaveData.getSaveData().getExperience_Points() - getLevelRank() * 50;
         int y;
@@ -54,6 +70,10 @@ public class Hone {
     }
 
 
+    /**
+     * 开始修炼
+     * @return 修炼信息
+     */
     private static String start() {
         SaveData saveData = SaveData.getSaveData();
         saveData.setStart_Time(System.currentTimeMillis());
@@ -68,6 +88,10 @@ public class Hone {
         return String.format("开始修炼，修理时间:%d分%02d秒，预计获得经验:[%d-%d]", mm, ss, min, max);
     }
 
+    /**
+     * 结束修炼，获得修炼奖励
+     * @return 修炼结果
+     */
     private static String exit() {
         SaveData saveData = SaveData.getSaveData();
         Random rand = new Random();

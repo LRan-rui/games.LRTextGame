@@ -5,6 +5,10 @@ import com.example.lrtextgame.command.craft.Craft;
 
 import java.util.HashMap;
 
+/**
+ * 植物类
+ * @author 凌然
+ */
 public class PlantGroup {
     private static final HashMap<String, Material> map = new HashMap<>();
 

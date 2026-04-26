@@ -5,10 +5,15 @@ import com.example.lrtextgame.save.SaveData;
 
 import java.util.HashMap;
 
+/**
+ * 装备管理相关方法
+ * @author 凌然
+ */
 public class EquipmentManager {
 
     private static final HashMap<String, Equipment> EQUIPMENT = new HashMap<>();
 
+    //初始化装备列表
     static {
         for (Equipment equipment : MinorArcana.Wands.values()) {
             EQUIPMENT.put(equipment.getNameID(), equipment);
@@ -35,16 +40,30 @@ public class EquipmentManager {
         return EQUIPMENT;
     }
 
+    /**
+     * 判断一件物品是否是装备
+     * @param equipment 物品ID
+     * @return 判断结果
+     */
     public static String isEquipment(String equipment) {
         Equipment equip = EQUIPMENT.get(equipment);
         return equip != null ? equip.getNameID() : Signal.THING_NOT_FOUND_ERROR.getSignal();
     }
 
+    /**
+     * 根据ID获取装备对象
+     * @param equipment 物品ID
+     * @return 装备对象
+     */
     public static Equipment toEquipment(String equipment) {
         return EQUIPMENT.get(equipment);
     }
 
-
+    /**
+     * 装备装备
+     * @param equipment 要装备的装备ID
+     * @return 装备结果
+     */
     public static String setEquipment(String equipment) {
         if (isEquipment(equipment).equals(Signal.THING_NOT_FOUND_ERROR.getSignal())) {
             return Signal.THING_NOT_FOUND_ERROR.getSignal();
@@ -68,6 +87,11 @@ public class EquipmentManager {
         return Signal.EQUIPMENT_TOO_MUCH.getSignal();
     }
 
+    /**
+     * 卸下装备
+     * @param equipment 要卸下的装备的ID
+     * @return 卸下结果
+     */
     public static String removeEquipment(String equipment) {
         if (isEquipment(equipment).equals(Signal.THING_NOT_FOUND_ERROR.getSignal())) {
             return Signal.THING_NOT_FOUND_ERROR.getSignal();
@@ -89,6 +113,11 @@ public class EquipmentManager {
         return String.format("你没有装备【%s】", equipment);
     }
 
+    /**
+     * 排序装备数组
+     * @param equipments 要排序的装备数组
+     * @return 排序结果
+     */
     private static String[] compactEquipments(String[] equipments) {
         String[] rtnEquipment = new String[equipments.length];
         int i = 0;

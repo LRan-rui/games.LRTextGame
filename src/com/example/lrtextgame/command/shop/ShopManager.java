@@ -9,12 +9,16 @@ import java.util.regex.Pattern;
 
 public class ShopManager {
     private static final HashMap<String, ShopItem> shopItems = new HashMap<>();
-    private static final Pattern pattern = Pattern.compile("^(.*?)(\\d+).");
+    private static final Pattern pattern = Pattern.compile("^(.*?)(\\d+)");
 
     static {
         for (ShopItem shopItem : ShopItem.values()) {
             shopItems.put(shopItem.getThing() != null ? shopItem.getThing().getNameID() : "体力", shopItem);
         }
+    }
+
+    public static String shopInformation() {
+        return "";
     }
 
     public static String buyShopItem(String param) {

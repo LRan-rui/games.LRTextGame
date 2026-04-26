@@ -5,6 +5,10 @@ import com.example.lrtextgame.command.Param;
 import com.example.lrtextgame.command.fight.Skill;
 import com.example.lrtextgame.command.fight.SkillGroup;
 
+/**
+ * 法杖类武器
+ * @author 凌然
+ */
 public enum Staff implements Equipment{
     SHARDSTONE_STAFF(Param.D,"碎晶法杖","杖顶嵌碎晶，敲击迸发锐利光屑，灼伤目标。",new int[]{0,0,0,0,0,0,50},true,
             new SkillGroup(new Skill("光之攻击",Param.D,1,100,0,1))),

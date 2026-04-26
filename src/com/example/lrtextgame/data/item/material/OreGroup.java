@@ -5,6 +5,10 @@ import com.example.lrtextgame.command.craft.Craft;
 
 import java.util.HashMap;
 
+/**
+ * 矿石类
+ * @author 凌然
+ */
 public class OreGroup {
     private static final HashMap<String, Material> map = new HashMap<>();
 

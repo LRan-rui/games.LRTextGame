@@ -5,6 +5,10 @@ import com.example.lrtextgame.data.character.Arcana;
 
 import java.util.HashMap;
 
+/**
+ * 存档基类
+ * @author 凌然
+ */
 public class Data {
     //当前角色
     Arcana PlayerCharacter;
@@ -60,6 +64,7 @@ public class Data {
         this.Property_Pool.put(Param.MINING_NUM, 0);
         this.Property_Pool.put(Param.LOGGING_LEVEL,0);
         this.Property_Pool.put(Param.LOGGING_NUM, 0);
+        this.Property_Pool.put(Param.TOWER_FLOOR,0);
 
     }
 

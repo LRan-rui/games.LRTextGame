@@ -1,11 +1,17 @@
 package com.example.lrtextgame.command.fight;
 
+/**
+ * 技能类
+ * @author 凌然
+ */
 public class Skill {
     private final String nameID;
     private final String level;
+    //冷却时间
     private final int cooldownTime;
     private final int damagePercentMagic;
     private final int damagePercent;
+    //目标数，为零表示全体伤害
     private final int damageNum;
 
 

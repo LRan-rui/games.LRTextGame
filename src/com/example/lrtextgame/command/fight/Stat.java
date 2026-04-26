@@ -5,6 +5,10 @@ import com.example.lrtextgame.command.Param;
 import com.example.lrtextgame.data.item.equipment.EquipmentManager;
 import com.example.lrtextgame.save.SaveData;
 
+/**
+ * 属性类
+ * @author 凌然
+ */
 public class Stat {
 
     private static final int HEALTH_BASIC = 1000;
@@ -15,6 +19,10 @@ public class Stat {
     private static final int MAGIC_ATTACK_ADDITIONAL_BASIC = 20;
 
 
+    /**
+     * 格式化输出当前角色属性
+     * @return 角色属性
+     */
     public static String getStatInformation() {
         SaveData saveData = SaveData.getSaveData();
 
@@ -50,6 +58,10 @@ public class Stat {
         );
     }
 
+    /**
+     * 获取对象属性数组
+     * @return 属性数组
+     */
     public static int[] getStatArray() {
         int[] rtn = new int[7];
         rtn[Param.STAT_PHYSICAL] = getOne(Param.STAT_PHYSICAL);
@@ -62,6 +74,11 @@ public class Stat {
         return rtn;
     }
 
+    /**
+     * 计算玩家生命值
+     * <p>计算公式：[基础值]+[等级]*[每等级加成]*[玩家阶层加成]+[装备提供的额外值]
+     * @return 生命值
+     */
     public static int getHealth() {
         SaveData saveData = SaveData.getSaveData();
         int level = saveData.getPlayer_Level();
@@ -77,6 +94,11 @@ public class Stat {
         return (int) (HEALTH_BASIC + additionalHealth + (HEALTH_ADDITIONAL_BASIC * (level) * (1 + (0.2 * (Hone.getLevelRank() - 1)))));
     }
 
+    /**
+     * 计算玩家物理攻击力
+     * <p>计算公式：[基础值]+[等级]*[每等级加成]*[玩家阶层加成]+[装备提供的额外值]
+     * @return 物理攻击力
+     */
     public static int getAttack() {
         SaveData saveData = SaveData.getSaveData();
         int level = saveData.getPlayer_Level();
@@ -92,6 +114,11 @@ public class Stat {
         return (int) (ATTACK_BASIC + additionalAttack + (ATTACK_ADDITIONAL_BASIC * (level) * (1 + (0.1 * (Hone.getLevelRank() - 1)))));
     }
 
+    /**
+     * 计算玩家魔法攻击力
+     * <p>计算公式：[基础值]+[等级]*[每等级加成]*[玩家阶层加成]+[装备提供的额外值]
+     * @return 魔法攻击力
+     */
     public static int getMagicAttack() {
         SaveData saveData = SaveData.getSaveData();
         int level = saveData.getPlayer_Level();
@@ -107,6 +134,12 @@ public class Stat {
         return (int) (MAGIC_ATTACK_BASIC + additionalMagicAttack + (MAGIC_ATTACK_ADDITIONAL_BASIC * (level) * (1 + (0.1 * (Hone.getLevelRank() - 1)))));
     }
 
+    /**
+     * 计算玩家的属性值
+     * <p>计算公式：[基础值]*(1+[角色星级]/10)+[装备提供的额外值]
+     * @param param 属性类型
+     * @return 属性值
+     */
     private static int getOne(int param) {
         SaveData saveData = SaveData.getSaveData();
 
@@ -125,6 +158,10 @@ public class Stat {
         return rtn;
     }
 
+    /**
+     * 获取玩家的所有技能
+     * @return 技能组
+     */
     public static SkillGroup getSkillGroup() {
         SaveData saveData = SaveData.getSaveData();
         SkillGroup rtn = new SkillGroup();

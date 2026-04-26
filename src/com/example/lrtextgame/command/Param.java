@@ -1,5 +1,9 @@
 package com.example.lrtextgame.command;
 
+/**
+ * 提供常量。
+ * @author 凌然
+ */
 public class Param {
 
     public static final int HONE_LOOT_MIN = 0;
@@ -18,6 +22,8 @@ public class Param {
 
     public static final String MINING_NUM = "Mining_Number";
     public static final String LOGGING_NUM = "Logging_Number";
+
+    public static final String TOWER_FLOOR = "Tower_Floor";
 
     public static final String S = "S";
     public static final String A = "A";

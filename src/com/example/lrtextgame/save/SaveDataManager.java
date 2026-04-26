@@ -1,7 +1,15 @@
 package com.example.lrtextgame.save;
 
+/**
+ * 存档管理类
+ * @author 凌然
+ */
 public class SaveDataManager extends Data {
 
+    /**
+     * 设置存档数据
+     * @param saveData 存档类
+     */
     public static void setSaveData(SaveData saveData) {
         SaveDataManager saveDataManager = getSaveDataManager();
         saveData.setPlayerCharacter(saveDataManager.getPlayerCharacter());
@@ -24,7 +32,11 @@ public class SaveDataManager extends Data {
             super();
         }
 
-        public SaveDataManager(SaveData saveData) {
+    /**
+     * 保存存档至中间层
+     * @param saveData 存档类
+     */
+    public SaveDataManager(SaveData saveData) {
             this.PlayerCharacter = saveData.getPlayerCharacter();
             this.Player_ID = saveData.getPlayer_ID();
             this.Player_Level = saveData.getPlayer_Level();
@@ -47,6 +59,10 @@ public class SaveDataManager extends Data {
         return setFile.readSaveDataManager();
     }
 
+    /**
+     * 保存存档到文件
+     * @param saveData 存档类
+     */
     public static void saveData(SaveData saveData) {
         SaveDataManager saveDataManager = new SaveDataManager(saveData);
         setFile.saveSaveDataManager(saveDataManager);

@@ -2,9 +2,19 @@ package com.example.lrtextgame.command.action;
 
 import com.example.lrtextgame.save.SaveData;
 
+/**
+ * 提供体力相关方法
+ * @author 凌然
+ */
 public class EnergyManager {
     private static final long oneEnergyTime = 2 * 60 * 1000;
 
+    /**
+     * 回复体力的方法
+     * <p>从SaveData获取上一次恢复体力的时间，并以此为依据提供体力，
+     * 再将此时的时间戳存入SaveData
+     * @return 休息的时间和回复的体力
+     */
     public static String recoverEnergy() {
         SaveData saveData = SaveData.getSaveData();
         long now = System.currentTimeMillis();

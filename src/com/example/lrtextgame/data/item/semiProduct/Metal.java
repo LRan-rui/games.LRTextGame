@@ -27,7 +27,7 @@ public enum Metal implements SemiProduct {
 
     @Override
     public String getOutPutName() {
-        return "【%s】".formatted(nameID);
+        return "⚙️%s".formatted(nameID);
     }
 
     @Override

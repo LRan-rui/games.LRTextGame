@@ -8,10 +8,19 @@ import com.example.lrtextgame.save.SaveData;
 
 import java.util.HashMap;
 
+/**
+ * 配方类
+ * @author 凌然
+ */
 public class Recipe {
     private final HashMap<Thing, Integer> needThings = new HashMap<>();
     private final Zero craftingOutPut;
 
+    /**
+     * 声明一个配方
+     * @param zero 要合成的物品
+     * @param param 需要的材料和数量，参数必须成对出现：Thing，Integer，Thing,Integer...
+     */
     Recipe(Zero zero, Object... param) {
         if (param != null && param.length > 0) {
             if (param.length % 2 == 1) {
@@ -39,6 +48,10 @@ public class Recipe {
         this.craftingOutPut = zero;
     }
 
+    /**
+     * 检查背包中材料是否足够
+      * @return 检查结果（{@code Signal.getSignal()}）
+     */
     public String isEnoughThing() {
         SaveData saveData = SaveData.getSaveData();
         for (Thing thing : this.needThings.keySet()) {
@@ -51,6 +64,10 @@ public class Recipe {
         return Signal.RIGHT.getSignal();
     }
 
+    /**
+     * 依据配方合成物品
+     * @return 合成结果
+     */
     public String craftThings() {
         if (isEnoughThing().equals(Signal.RIGHT.getSignal())) {
             SaveData saveData = SaveData.getSaveData();
@@ -67,6 +84,10 @@ public class Recipe {
         return Signal.THING_NOT_ENOUGH.getSignal();
     }
 
+    /**
+     * 输出格式化后的配方
+     * @return 字符串
+     */
     public String formatString(){
         StringBuilder rtn = new StringBuilder("合成【%s】，需要：".formatted(this.craftingOutPut.getOutPutName()));
         int x = 0;

@@ -3,6 +3,11 @@ package com.example.lrtextgame.command.fight;
 import com.example.lrtextgame.central.Signal;
 import com.example.lrtextgame.save.SaveData;
 
+/**
+ * 战斗相关方法
+ * <p>也作为数据类
+ * @author 凌然
+ */
 public class Fight {
     private final FightCharacter[] player;
     private final FightCharacter[] otherPlayers;
@@ -15,6 +20,10 @@ public class Fight {
         this.otherPlayers = Others.clone();
     }
 
+    /**
+     * 判断战斗是否结束
+     * @return 是否结束
+     */
     private boolean isEnd(){
         boolean playerEnd = true;
         boolean otherPlayerEnd = true;
@@ -33,7 +42,12 @@ public class Fight {
         return playerEnd || otherPlayerEnd;
     }
 
-//返回值待定
+    /**
+     * 进行一场战斗
+     * @param player 玩家方
+     * @param enemy 敌人方
+     * @return 战斗结果
+     */
     public static FightMessage toFight(FightCharacter[] player, FightCharacter[] enemy) {
         Fight fight = new Fight(player,enemy);
 
@@ -55,16 +69,16 @@ public class Fight {
             }
             if(fight.isEnd() && fight.message.getTitle() == Signal.FIGHT_WIN){
                 fight.setSignal(Signal.FIGHT_LOSS);
-                fight.setMessage(player);
+                fight.setMessage(enemy);
                 break;
             }
         }
+        FightMessage.saveMessage(fight.message);
         return  fight.message;
     }
 
-    public int addTurn(){
+    public void addTurn(){
         turnNum++;
-        return turnNum;
     }
 
     public int getTurnNum(){
@@ -79,6 +93,10 @@ public class Fight {
         message.setTitle(signal);
     }
 
+    /**
+     * 设置ToFight的返回结果
+     * @param players 胜利方
+     */
     public void setMessage(FightCharacter[] players) {
         StringBuilder sb = new StringBuilder();
         sb.append("第").append(this.turnNum).append("回合结束\n");
@@ -96,20 +114,5 @@ public class Fight {
 
     public FightCharacter[] getPlayer() {
         return player;
-    }
-
-    public static void main(String[] args) {
-        SaveData.Start();
-        SaveData saveData = SaveData.getSaveData();
-        FightMessage fightMessage = toFight(
-                new FightCharacter[]{new FightCharacter(saveData.getPlayer_ID(),Stat.getStatArray(),Stat.getSkillGroup())},
-                new FightCharacter[]{new FightCharacter("敌人1",new int[]{10,10,10,10,4000,200,100}),
-                        new FightCharacter("敌人2",new int[]{10,10,10,10,4000,200,100}),
-                        new FightCharacter("敌人3",new int[]{10,10,10,10,4000,200,100}),
-                        new FightCharacter("敌人4",new int[]{10,10,10,10,4000,200,100}),
-                        new FightCharacter("敌人5",new int[]{10,10,10,10,4000,200,100})});
-        System.out.println(fightMessage.getTitle());
-        System.out.println(fightMessage.getBody());
-        System.out.println(fightMessage.getLogText());
     }
 }

@@ -10,11 +10,19 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * 文件相关方法
+ * @author 凌然
+ */
 public class setFile {
 
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private static final String SAVE_FILE = "save.json";
 
+    /**
+     * 读取存档，若无存档则返回新的存档类
+     * @return 存档中间层
+     */
     public static SaveDataManager readSaveDataManager() {
         SaveDataManager saveDataManager;
         File saveDir = new File("save");
@@ -34,6 +42,10 @@ public class setFile {
         return saveDataManager;
     }
 
+    /**
+     * 保存存档至文件
+     * @param saveDataManager 要保存的存档数据
+     */
     public static void saveSaveDataManager(SaveDataManager saveDataManager) {
         String json = gson.toJson(saveDataManager);
         File dir = new File("save");
