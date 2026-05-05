@@ -126,8 +126,8 @@ public class FightCharacter {
             enemyNum = skill.getDamageNum();
         }
         for (int i = 0; i < enemyNum; i++) {
-            damage += (getAttack() * (Math.max(100 + getPhysical() - enemy[i].getPhysical(), 0)) * skill.getDamagePercent() / 10000)
-                    + (getMagic_attack() * (Math.max(100 + getMagic() - enemy[i].getMagic(), 0)) * skill.getDamagePercentMagic() / 10000);
+            damage += (getAttack() * (Math.max(100 + getPhysical() - enemy[i].getPhysical_resistance(), 0)) * skill.getDamagePercent() / 10000)
+                    + (getMagic_attack() * (Math.max(100 + getMagic() - enemy[i].getMagic_resistance(), 0)) * skill.getDamagePercentMagic() / 10000);
         }
         return damage;
     }
